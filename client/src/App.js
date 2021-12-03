@@ -1,8 +1,9 @@
 import './App.css';
+import BBCSleighRide from './containers/BBCSleighRide';
 
 function App() {
   return (
-    <p>This is the Sleigh Ride app</p>
+    <BBCSleighRide />
   );
 }
 
