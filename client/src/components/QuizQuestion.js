@@ -1,9 +1,9 @@
 import React from "react";
 
-const QuizQuestion = () => {
+const QuizQuestion = ({question}) => {
 
     return (
-        <p>I am the quizQuestion</p>
+        <p>{question}</p>
     )
 }
 
