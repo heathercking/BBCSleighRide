@@ -18,25 +18,31 @@ const markers = [
 
 
 
-const Map = ( {setTooltipContent} ) => {
+const Map = ( { setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
+    // if (!chosenFilter) {
+    //     return null
+    //   }
+    
 
-    l
+    const handleChange = (event) => {
+        onFilterSelect(event.target.value);
+        console.log('event value is', event.target.value)
+    }
 
-
-
+    console.log('chosen filter is', chosenFilter)
 
     return (
         <>
         
         <div className="map-container">
             <div className="map-filters">
-                <button className="map-filter-btn" type="">'Merry Christmas' in different languages</button>
-                <button className="map-filter-btn" type="">What day is Christmas celebrated?</button>
-                <button className="map-filter-btn" type="">What's the traditional Christmas meal?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">'Merry Christmas' in different languages</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="day">What day is Christmas celebrated?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas meal?</button>
             </div>
             <div className="card">
-                <ComposableMap data-tip="" width="700" height="500" projectionConfig={{ scale: 190 }}>
+                <ComposableMap data-tip="" width={700} height={500} projectionConfig={{ scale: 190 }}>
                     <Geographies geography={geoUrl}>
                         {({geographies}) => geographies.map(geo =>
                                 <Geography 
@@ -49,7 +55,7 @@ const Map = ( {setTooltipContent} ) => {
                                         console.log(found)
                                         console.log()
                                         if (found) {
-                                            const GREETING = found["greeting"];
+                                            const GREETING = found[chosenFilter];
                                             setTooltipContent(`"${GREETING}" - ${NAME}`)
                                         } else {
                                             setTooltipContent(`${NAME}`)

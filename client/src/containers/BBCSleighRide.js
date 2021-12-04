@@ -13,12 +13,17 @@ import Footer from "../components/Footer";
 const BBCSleighRide = () => {
 
     const [content, setContent] = useState("");
+    const [selectedMapFilter, setSelectedMapFilter] = useState("");
+
+    const handleSelectedMapFilter = (filter) => {
+        setSelectedMapFilter(filter);
+    }
 
 
     return (
         <>
         <Header/>
-        <Map setTooltipContent={setContent}/>
+        <Map setTooltipContent={setContent} onFilterSelect={handleSelectedMapFilter} chosenFilter={selectedMapFilter} />
         <ReactTooltip>{content}</ReactTooltip>
         <Quiz/>
         <Joke />
