@@ -8,3 +8,7 @@ const nextQuestion = (questions, question) => {
     }
     return remainingQuestions
 }
+
+const removeQuestion = () => {
+    
+}

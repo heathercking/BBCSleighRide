@@ -1,9 +1,9 @@
 import React from "react";
 import QuizQuestion from "./QuizQuestion";
 
-const Quiz = ({questions, onAnswerCheck, quizAnswerIsCorrect}) => {
+const Quiz = ({questions, removeQuizQuestion, onAnswerCheck, quizAnswerIsCorrect}) => {
 
-    let answeredQuestions = [];
+    
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
         
@@ -20,16 +20,12 @@ const Quiz = ({questions, onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const shuffledQuestions = shuffleArray(questions);
 
-    const unansweredQuestions = shuffledQuestions.filter(question => !answeredQuestions);
     
-    
-    
-    const nodeItems = unansweredQuestions.map(question => {
+    const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} answeredQuestions = {answeredQuestions} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} removeQuizQuestion = {removeQuizQuestion} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
-
     return (
         <> 
         <h2>Welcome to the Christmas quiz</h2>

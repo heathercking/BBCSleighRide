@@ -7,12 +7,9 @@ import Footer from "../components/Footer";
 import { getQuestions } from "../services/SleighRideService";
 
 
-
-
 const BBCSleighRide = () => {
 
     const [questions, setQuestions] = useState([]);
-    
 
     useEffect(() => {
         getQuestions()
@@ -21,17 +18,20 @@ const BBCSleighRide = () => {
         })
     }, [])
 
-
-  /*   const handleAnswerCheck = (result) => {
-        setQuizAnswerIsCorrect(result)
+    const removeQuizQuestion = (question) => {
+        let temp = questions.map(question => question);
+        const indexToDelete = questions.map(questions => questions._id).indexOf(question._id);
+        temp.splice(indexToDelete, 1);
+        setQuestions(temp);
+        console.log(temp)
     }
- */
+
 
     return (
         <>
         {/* <Header/> */}
         {/* <Map/> */}
-        <Quiz questions = {questions}/*  quizAnswerIsCorrect = {quizAnswerIsCorrect} onAnswerCheck = {handleAnswerCheck} *//>
+        <Quiz questions = {questions} removeQuizQuestion = {removeQuizQuestion} /*  quizAnswerIsCorrect = {quizAnswerIsCorrect} onAnswerCheck = {handleAnswerCheck} *//>
         {/* <Joke /> */}
         {/* <Footer /> */}
         </>

@@ -4,7 +4,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import {nextQuestion} from '../services/QuizLogic'
 
 
-const QuizQuestion = ({questions, question, answeredQuestions, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, answeredQuestions, removeQuizQuestion, shuffleArray, onAnswerCheck}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
@@ -31,11 +31,9 @@ const QuizQuestion = ({questions, question, answeredQuestions, shuffleArray, onA
 
     const handleNext = (event) => {
         console.log(event.target.innerHTML)
-        console.log(answeredQuestions)
-        answeredQuestions.push(question)
-        console.log(answeredQuestions)
-        window.location.reload(false)
-        // nextQuestion()
+        removeQuizQuestion(question)
+        // window.location.reload(false)
+
     }
 
     return (
