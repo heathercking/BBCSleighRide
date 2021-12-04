@@ -3,7 +3,8 @@ import QuizQuestion from "./QuizQuestion";
 
 const Quiz = ({questions, removeQuizQuestion, onAnswerCheck, quizAnswerIsCorrect}) => {
 
-    
+    const questionsRemaining = questions.length;
+
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
         
@@ -31,6 +32,10 @@ const Quiz = ({questions, removeQuizQuestion, onAnswerCheck, quizAnswerIsCorrect
         <h2>Welcome to the Christmas quiz</h2>
         <p>Answer all the questions to be on the nice list</p>
         {nodeItems.splice(0, 1)}
+        <div className="end-of-quiz" style={{display: questionsRemaining ? 'none' : 'block'}}>
+            <h2>You have finished the quiz hooray!</h2>
+            <p></p>
+        </div>
         </>
     )
 }
