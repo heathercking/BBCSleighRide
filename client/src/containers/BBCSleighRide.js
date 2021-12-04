@@ -7,9 +7,12 @@ import Footer from "../components/Footer";
 import { getQuestions } from "../services/SleighRideService";
 
 
+
+
 const BBCSleighRide = () => {
 
     const [questions, setQuestions] = useState([]);
+    
 
     useEffect(() => {
         getQuestions()
@@ -18,13 +21,17 @@ const BBCSleighRide = () => {
         })
     }, [])
 
-    
+
+  /*   const handleAnswerCheck = (result) => {
+        setQuizAnswerIsCorrect(result)
+    }
+ */
 
     return (
         <>
         {/* <Header/> */}
         {/* <Map/> */}
-        <Quiz questions = {questions}/>
+        <Quiz questions = {questions}/*  quizAnswerIsCorrect = {quizAnswerIsCorrect} onAnswerCheck = {handleAnswerCheck} *//>
         {/* <Joke /> */}
         {/* <Footer /> */}
         </>

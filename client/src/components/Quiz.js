@@ -1,7 +1,7 @@
 import React from "react";
 import QuizQuestion from "./QuizQuestion";
 
-const Quiz = ({questions}) => {
+const Quiz = ({questions, onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
@@ -21,7 +21,7 @@ const Quiz = ({questions}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion question = {question.question} correct = {question.correct} options = {[question.options[0], question.options[1], question.options[2]]} key= {question._id} shuffleArray = {shuffleArray}/>
+            <QuizQuestion question = {question} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
 
