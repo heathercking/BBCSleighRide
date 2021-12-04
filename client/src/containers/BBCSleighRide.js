@@ -13,16 +13,10 @@ const BBCSleighRide = () => {
 
     useEffect(() => {
         getQuestions()
+        .then(data => {
+            setQuestions(data)
+        })
     }, [])
-
-    const getQuestions = () => {
-        fetch("http://localhost:5000/api/quiz")
-        .then(response => response.json())
-        .then(data => setQuestions(data))
-        .then(data => console.log(questions))
-        .catch(err => console.error(err))
-        }
-    
 
     return (
         <>
