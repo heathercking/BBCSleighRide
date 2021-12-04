@@ -1,9 +1,15 @@
 import React from "react";
 
-const QuizQuestion = ({question}) => {
+const QuizQuestion = ({question, correct, incorrect, key}) => {
 
     return (
-        <p>{question}</p>
+        <div className="quiz-question">
+            <h4>{question}</h4>
+            <p>{correct}</p>
+            <p>{incorrect}</p>
+            <button>Next</button>
+            <button>Exit</button>
+        </div>
     )
 }
 

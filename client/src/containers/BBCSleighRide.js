@@ -18,13 +18,15 @@ const BBCSleighRide = () => {
         })
     }, [])
 
+    
+
     return (
         <>
-        <Header/>
-        <Map/>
+        {/* <Header/> */}
+        {/* <Map/> */}
         <Quiz questions = {questions}/>
-        <Joke />
-        <Footer />
+        {/* <Joke /> */}
+        {/* <Footer /> */}
         </>
     )
 }
