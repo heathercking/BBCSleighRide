@@ -10,6 +10,9 @@ import { getQuestions } from "../services/SleighRideService";
 const BBCSleighRide = () => {
 
     const [questions, setQuestions] = useState([]);
+    let [correctAnswers, setCorrectAnswers] = useState(0);
+    let [incorrectAnswers, setCorrectAnswers] = useState(0);
+    let [totalQuestions, setCorrectAnswers] = useState(0);
 
     useEffect(() => {
         getQuestions()
@@ -31,7 +34,7 @@ const BBCSleighRide = () => {
         <>
         {/* <Header/> */}
         {/* <Map/> */}
-        <Quiz questions = {questions} removeQuizQuestion = {removeQuizQuestion} /*  quizAnswerIsCorrect = {quizAnswerIsCorrect} onAnswerCheck = {handleAnswerCheck} *//>
+        <Quiz questions = {questions}removeQuizQuestion = {removeQuizQuestion} />
         {/* <Joke /> */}
         {/* <Footer /> */}
         </>

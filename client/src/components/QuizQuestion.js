@@ -8,6 +8,10 @@ const QuizQuestion = ({questions, question, answeredQuestions, removeQuizQuestio
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
+    let totalQuestions = 0;
+
     
     useEffect(() => {
         getRandomOptions(question.options)
@@ -31,6 +35,10 @@ const QuizQuestion = ({questions, question, answeredQuestions, removeQuizQuestio
 
     const handleNext = (event) => {
         console.log(event.target.innerHTML)
+        // updateScore(correctAnswers, incorrectAnswers, totalQuestions)
+        totalQuestions ++;
+        console.log(totalQuestions)
+        setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
         // window.location.reload(false)
 
