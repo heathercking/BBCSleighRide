@@ -1,4 +1,9 @@
 import React from "react";
+import ReactDOM from 'react-dom'
+import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
+
+
+
 
 const QuizQuestion = ({question, correct, options, key, shuffleArray}) => {
 
@@ -15,6 +20,8 @@ const QuizQuestion = ({question, correct, options, key, shuffleArray}) => {
             </ul>
             <button>Next</button>
             <button>Exit</button>
+            <BsFillCheckCircleFill/>
+            <BsFillXCircleFill />
         </div>
     )
 }
