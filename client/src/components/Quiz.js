@@ -3,7 +3,7 @@ import QuizQuestion from "./QuizQuestion";
 
 const Quiz = ({questions}) => {
 
-    function shuffleArray(array) {
+    const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
         
         while (currentIndex != 0) {
@@ -21,7 +21,7 @@ const Quiz = ({questions}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion question = {question.question} correct = {question.correct} incorrect = {[question.options[0], question.options[1], question.options[2]]} key= {question._id}/>
+            <QuizQuestion question = {question.question} correct = {question.correct} options = {[question.options[0], question.options[1], question.options[2]]} key= {question._id} shuffleArray = {shuffleArray}/>
         )
     })
 
