@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
+import {nextQuestion} from '../services/QuizLogic'
 
 
-const QuizQuestion = ({question, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, answeredQuestions, shuffleArray, onAnswerCheck}) => {
 
 
-    const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(true);
+    const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
     
     useEffect(() => {
         getRandomOptions(question.options)
@@ -28,6 +29,15 @@ const QuizQuestion = ({question, shuffleArray, onAnswerCheck}) => {
         }
     }
 
+    const handleNext = (event) => {
+        console.log(event.target.innerHTML)
+        console.log(answeredQuestions)
+        answeredQuestions.push(question)
+        console.log(answeredQuestions)
+        window.location.reload(false)
+        // nextQuestion()
+    }
+
     return (
         <div className="quiz-question">
             <h4>{question.question}</h4>
@@ -37,7 +47,7 @@ const QuizQuestion = ({question, shuffleArray, onAnswerCheck}) => {
                 <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[1]}</li>
                 <li className="quiz-question-option quiz-option3" onClick = {handleClick}>{question.options[2]}</li>
             </ul>
-            <button>Next</button>
+            <button onClick = {handleNext}>Next</button>
             <button>Exit</button>
 
         <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>

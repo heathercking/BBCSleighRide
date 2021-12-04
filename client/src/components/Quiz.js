@@ -3,6 +3,7 @@ import QuizQuestion from "./QuizQuestion";
 
 const Quiz = ({questions, onAnswerCheck, quizAnswerIsCorrect}) => {
 
+    let answeredQuestions = [];
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
         
@@ -19,14 +20,18 @@ const Quiz = ({questions, onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const shuffledQuestions = shuffleArray(questions);
 
-    const nodeItems = shuffledQuestions.map(question => {
+    const unansweredQuestions = shuffledQuestions.filter(question => !answeredQuestions);
+    
+    
+    
+    const nodeItems = unansweredQuestions.map(question => {
         return (
-            <QuizQuestion question = {question} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} answeredQuestions = {answeredQuestions} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
 
     return (
-        <>
+        <> 
         <h2>Welcome to the Christmas quiz</h2>
         <p>Answer all the questions to be on the nice list</p>
         {nodeItems.splice(0, 1)}
