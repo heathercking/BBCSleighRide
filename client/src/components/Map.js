@@ -9,20 +9,25 @@ import {
 import "../css/map.css"
 
 
-const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const markers = [
-    {name: "United States of America", coordinates: [-74.006, 40.7128], greeting: "Happy Holidays"},
-    {name: "United Kingdom", coordinates: [-3.19648, 55.95206], greeting: "Merry Christmas"}
-];
+const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-
-
-const Map = ( { setTooltipContent, onFilterSelect, chosenFilter } ) => {
-
-    // if (!chosenFilter) {
+    // if (tooltipData === undefined) {
     //     return null
     //   }
+
+    const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+
+    const markers = [
+        {name: "United States of America", coordinates: [-74.006, 40.7128], greeting: "Happy Holidays"},
+        {name: "United Kingdom", coordinates: [-3.19648, 55.95206], greeting: "Merry Christmas"},
+        {name: "France", coordinates: [2.349014, 48.864716], greeting: "Joyeux Noël"}
+    ];
+
+
+
+    const tooltipData = countriesData.map((country) => country);
+    // console.log(tooltipData[0]["celebrated"])
     
 
     const handleChange = (event) => {
@@ -38,7 +43,7 @@ const Map = ( { setTooltipContent, onFilterSelect, chosenFilter } ) => {
         <div className="map-container">
             <div className="map-filters">
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">'Merry Christmas' in different languages</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="day">What day is Christmas celebrated?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="day">What day is Christmas celebrated on?</button>
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas meal?</button>
             </div>
             <div className="card">
@@ -50,7 +55,6 @@ const Map = ( { setTooltipContent, onFilterSelect, chosenFilter } ) => {
                                     geography={geo} 
                                     onMouseEnter={() => {
                                         const { NAME } = geo.properties;
-                                        
                                         const found = markers.find(country => country["name"] === NAME);
                                         console.log(found)
                                         console.log()

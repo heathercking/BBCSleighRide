@@ -12,18 +12,30 @@ import Footer from "../components/Footer";
 
 const BBCSleighRide = () => {
 
+    const [countries, setCountries] = useState([]);
     const [content, setContent] = useState("");
     const [selectedMapFilter, setSelectedMapFilter] = useState("");
 
+    useEffect(() => {
+        getCountries();
+    }, [])
+
+
     const handleSelectedMapFilter = (filter) => {
         setSelectedMapFilter(filter);
+    }
+
+    const getCountries = function() {
+        fetch('http://localhost:5000/api/countries')
+        .then(res => res.json())
+        .then(countries => setCountries(countries))
     }
 
 
     return (
         <>
         <Header/>
-        <Map setTooltipContent={setContent} onFilterSelect={handleSelectedMapFilter} chosenFilter={selectedMapFilter} />
+        <Map countriesData={countries} setTooltipContent={setContent} onFilterSelect={handleSelectedMapFilter} chosenFilter={selectedMapFilter} />
         <ReactTooltip>{content}</ReactTooltip>
         <Quiz/>
         <Joke />
