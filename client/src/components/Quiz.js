@@ -29,7 +29,7 @@ const Quiz = ({questions}) => {
         <>
         <h2>Welcome to the Christmas quiz</h2>
         <p>Answer all the questions to be on the nice list</p>
-        {nodeItems}
+        {nodeItems.splice(0, 1)}
         </>
     )
 }
