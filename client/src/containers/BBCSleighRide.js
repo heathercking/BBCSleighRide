@@ -14,7 +14,7 @@ const BBCSleighRide = () => {
 
     const [countries, setCountries] = useState([]);
     const [content, setContent] = useState("");
-    const [selectedMapFilter, setSelectedMapFilter] = useState("greeting");
+    const [selectedMapFilter, setSelectedMapFilter] = useState("");
 
     useEffect(() => {
         getCountries();
@@ -36,7 +36,7 @@ const BBCSleighRide = () => {
         <>
         <Header/>
         <Map countriesData={countries} setTooltipContent={setContent} onFilterSelect={handleSelectedMapFilter} chosenFilter={selectedMapFilter} />
-        <ReactTooltip>{content}</ReactTooltip>
+        <ReactTooltip multiline={true} html={true}>{content}</ReactTooltip>
         <Quiz/>
         <Joke />
         <Footer />

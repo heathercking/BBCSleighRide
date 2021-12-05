@@ -24,12 +24,6 @@ h1 {
     margin: 0;
 }
 
-.map-container {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-
 .card {
     background-color: #fff;
     color: #333;
@@ -38,3 +32,22 @@ h1 {
     padding: 5px;
     margin: 10px;
 }
+
+.map-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.map-filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0 30px;
+}
+
+.map-filter-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
