@@ -11,14 +11,16 @@ import useSound from 'use-sound';
 
 import "../css/map.css";
 import candy_cane from "../assets/candy_cane.svg";
-import jingle_bells from "../assets/jingle_bells_cut.mp3";
+import jingle_bells from "../sounds/jingle_bells_cut.mp3";
+import hohoho from "../sounds/hohoho.mp3";
 
 
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
     const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
-    const [play] = useSound(jingle_bells);
+    const [play1] = useSound(jingle_bells);
+    const [play2] = useSound(hohoho);
 
     if (!countriesData) {
         return null
@@ -73,9 +75,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         
         <div className="map-container">
             <div className="map-filters">
-                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
-                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
-                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
+                <button onClick={handleChange, play1} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
+                <button onClick={handleChange, play2} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
+                <button onClick={handleChange, play1} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
             </div>
 
             <div className="card">
