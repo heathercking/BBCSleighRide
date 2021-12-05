@@ -14,4 +14,4 @@ function Header() {
   )
 }
 
-export default withRouter(Header);
+export default Header;
