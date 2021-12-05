@@ -25,11 +25,13 @@ const BBCSleighRide = () => {
     }, [])
 
 
-    const updateScore = (correct) => {
+    const updateScore = (correct, incorrect, total) => {
         setScore((previousObjectState) => {
                 return {
                     ...previousObjectState,
-                    correctQuestions: correct
+                    correctQuestions: correct,
+                    incorrectQuestions: incorrect,
+                    totalQuestions: total,
                 }
             })
     }

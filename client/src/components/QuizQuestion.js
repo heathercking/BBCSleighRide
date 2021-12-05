@@ -9,9 +9,6 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
     
-
-
-    
     useEffect(() => {
         getRandomOptions(question.options)
         
@@ -35,11 +32,12 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     const handleNext = (event) => {
         // console.log(event.target.innerHTML)
         // console.log(score)
-        
+        const newTotal = 0
+
         if (quizAnswerIsCorrect) {
-            const temp = score.correctQuestions + 1
-            console.log(temp)
-            updateScore(temp)
+            updateScore(score.correctQuestions + 1, score.incorrectQuestions, score.totalQuestions + 1)
+        } else {
+            updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
         }
         
         setQuizAnswerIsCorrect(null);
