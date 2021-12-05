@@ -1,10 +1,17 @@
 import React from "react";
+import {withRouter} from 'react-router-dom';
+import logo from '../images/logo.svg';
 
-const Header = () => {
+function Header() {
+  return (
+    <nav className="nav-bar">
+      <img src={logo} alt="Logo" />
 
-    return ( 
-        <h1>BBC Sleigh Ride</h1>
-    )
+      <ul>
+
+      </ul>
+    </nav>
+  )
 }
 
-export default Header;
+export default withRouter(Header);
