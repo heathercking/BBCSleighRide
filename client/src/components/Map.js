@@ -13,6 +13,7 @@ import "../css/map.css";
 import candy_cane from "../assets/candy_cane.svg";
 import jingle_bells from "../sounds/jingle_bells_cut.mp3";
 import hohoho from "../sounds/hohoho.mp3";
+import wishyoumerry from "../sounds/we_wish_you_a_merry_christmas.mp3"
 
 
 
@@ -21,6 +22,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
+    const [play3] = useSound(wishyoumerry)
 
     if (!countriesData) {
         return null
@@ -29,6 +31,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     
     //FOR WHEN FILTER BUTTONS ARE SELECTED
     const handleChange = (event) => {
+        const playArray = [play1, play2, play3]
+        const toPlay = playArray[Math.floor(Math.random()*playArray.length)]
+        toPlay()
         onFilterSelect(event.target.value);
         console.log('event value is', event.target.value)
     }
@@ -75,9 +80,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         
         <div className="map-container">
             <div className="map-filters">
-                <button onClick={handleChange, play1} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
-                <button onClick={handleChange, play2} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
-                <button onClick={handleChange, play1} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
             </div>
 
             <div className="card">
