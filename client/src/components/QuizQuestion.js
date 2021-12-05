@@ -8,9 +8,12 @@ const QuizQuestion = ({questions, question, answeredQuestions, removeQuizQuestio
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
-    let correctAnswers = 0;
-    let incorrectAnswers = 0;
-    let totalQuestions = 0;
+    var [score, setScore] = useState({
+                                                correctQuestions: 0,
+                                                incorrectQuestions: 0,
+                                                totalQuestions: 0
+    });
+
 
     
     useEffect(() => {
@@ -23,25 +26,34 @@ const QuizQuestion = ({questions, question, answeredQuestions, removeQuizQuestio
     }
 
     const handleClick = (event) => {
-        console.log(event.target.innerHTML)
+        // console.log(event.target.innerHTML)
         if (event.target.innerHTML == question.correct) {
-            console.log("Hurray")
+            // console.log("Hurray")
             setQuizAnswerIsCorrect(true);
-            console.log(quizAnswerIsCorrect)
+            // console.log(quizAnswerIsCorrect)
         } else {
             setQuizAnswerIsCorrect(false);
         }
     }
 
     const handleNext = (event) => {
-        console.log(event.target.innerHTML)
-        // updateScore(correctAnswers, incorrectAnswers, totalQuestions)
-        totalQuestions ++;
-        console.log(totalQuestions)
+        // console.log(event.target.innerHTML)
+        // console.log(score)
+        
+        if (quizAnswerIsCorrect) {
+            const temp = score.correctQuestions + 1
+            console.log(temp)
+
+            setScore((previousObjectState) => {
+                return {
+                    ...previousObjectState,
+                    correctQuestions: temp
+                }
+            })
+        }
+        
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
-        // window.location.reload(false)
-
     }
 
     return (
