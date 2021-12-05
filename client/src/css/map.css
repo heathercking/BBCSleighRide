@@ -49,7 +49,7 @@ h1 {
 .map-filter-btn {
     padding: 10px 20px;
     border-radius: 10px;
-    border: 2px #D20018 solid;
+    border: 4px #D20018 solid;
     background-color: #FEFFFD;
     color: #00863D;
     font-weight: bold;
@@ -63,6 +63,9 @@ h1 {
     color: #FEFFFD;
 }
 
+
+
+/* ZOOM CONTROLS */
 svg {
     /* display: inline-block; */
     vertical-align: middle;
@@ -73,7 +76,7 @@ svg {
     text-align: center;
     justify-content: center;
     position: absolute;
-    left: 50%;
+    right: 5%;
     margin: 15px 0;
     transform: translateX(-50%);
   }
