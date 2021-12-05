@@ -10,6 +10,11 @@ import { getQuestions } from "../services/SleighRideService";
 const BBCSleighRide = () => {
 
     const [questions, setQuestions] = useState([]);
+    var [score, setScore] = useState({
+                                                correctQuestions: 0,
+                                                incorrectQuestions: 0,
+                                                totalQuestions: 0
+    });
    
 
     useEffect(() => {
@@ -19,6 +24,16 @@ const BBCSleighRide = () => {
         })
     }, [])
 
+
+    const updateScore = (correct) => {
+        setScore((previousObjectState) => {
+                return {
+                    ...previousObjectState,
+                    correctQuestions: correct
+                }
+            })
+    }
+
     const removeQuizQuestion = (question) => {
         let temp = questions.map(question => question);
         const indexToDelete = questions.map(questions => questions._id).indexOf(question._id);
@@ -27,16 +42,13 @@ const BBCSleighRide = () => {
         // console.log(temp)
     }
 
-    const updateScore = () => {
-
-    }
 
 
     return (
         <>
         {/* <Header/> */}
         {/* <Map/> */}
-        <Quiz questions = {questions} removeQuizQuestion = {removeQuizQuestion} />
+        <Quiz questions = {questions} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore}/>
         {/* <Joke /> */}
         {/* <Footer /> */}
         </>

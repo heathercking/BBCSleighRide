@@ -1,7 +1,7 @@
 import React from "react";
 import QuizQuestion from "./QuizQuestion";
 
-const Quiz = ({questions, removeQuizQuestion, onAnswerCheck, quizAnswerIsCorrect}) => {
+const Quiz = ({questions, score, removeQuizQuestion, updateScore, onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const questionsRemaining = questions.length;
 
@@ -24,7 +24,7 @@ const Quiz = ({questions, removeQuizQuestion, onAnswerCheck, quizAnswerIsCorrect
     
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} removeQuizQuestion = {removeQuizQuestion} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (
