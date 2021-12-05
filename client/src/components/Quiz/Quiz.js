@@ -1,5 +1,7 @@
 import React from "react";
 import QuizQuestion from "./QuizQuestion";
+import QuizWelcome from './QuizWelcome'
+import QuizEnd from './QuizEnd'
 
 const Quiz = ({questions, score, removeQuizQuestion, updateScore, onAnswerCheck, quizAnswerIsCorrect}) => {
 
@@ -28,14 +30,10 @@ const Quiz = ({questions, score, removeQuizQuestion, updateScore, onAnswerCheck,
         )
     })
     return (
-        <> 
-        <h2>Welcome to the Christmas quiz</h2>
-        <p>Answer all the questions to be on the nice list</p>
+        <>
+        <QuizWelcome/> 
         {nodeItems.splice(0, 1)}
-        <div className="end-of-quiz" style={{display: questionsRemaining ? 'none' : 'block'}}>
-            <h2>You have finished the quiz hooray!</h2>
-            <p></p>
-        </div>
+        {questionsRemaining == 0 ? <QuizEnd /> : null}
         </>
     )
 }

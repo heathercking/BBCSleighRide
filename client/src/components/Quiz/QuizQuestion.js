@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
-import {nextQuestion} from '../services/QuizLogic'
+import {nextQuestion} from '../../services/QuizLogic'
 
 
 const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
