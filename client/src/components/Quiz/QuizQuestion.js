@@ -13,9 +13,8 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
     const [remainingGuesses, setRemainingGuesses] = useState(5);
 
     const candyCanes = [...Array(remainingGuesses)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
-    
-    
 
+    
     useEffect(() => {
         getRandomOptions(question.options)
     }, [])
@@ -51,9 +50,10 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
     if (remainingGuesses) {
         return (
         <div className="quiz-question">
-            {candyCanes}
+            
             <h4>{question.question}</h4>
-            <QuizTally remainingGuesses = {remainingGuesses} />
+            <QuizTally remainingGuesses = {remainingGuesses}/>
+            {candyCanes}
             <p>{question.correct}</p>
             <ul>
                 
@@ -71,7 +71,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
     )
     } else {
         return (
-            <div className="lose-screem">
+            <div className="lose-screen">
                 <h4>
                     Oh no, you have run out of candies.
                 </h4>
