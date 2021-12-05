@@ -57,9 +57,14 @@ h1 {
 
 .map-filter-btn:hover {
     cursor: pointer;
-    transform: scale(1.08);
+    transform: scale(1.10);
     /* transform: translateY(-5px); */
-    background-color: #339900;
+    background-color: #00863D;
+    color: #FEFFFD;
+}
+
+.map-filter-btn:focus {
+    background-color: #00863D;
     color: #FEFFFD;
 }
 
