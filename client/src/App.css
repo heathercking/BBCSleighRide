@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* SVG resizing */
+
+.candy-cane-quiz-lives {
+  height: 20px;
+  width: 20px;
+}

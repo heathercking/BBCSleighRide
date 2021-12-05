@@ -39,18 +39,18 @@ db.quiz.insertMany([
     {
         question: "How do you say ‘Happy Christmas’ in French?",
         correct: "Joyeux Noël",
-        incorrect: ["Feliz navidad", "Salut"]
+        options: ["Feliz navidad", "Salut", "Joyeux Noël"]
     },
     {
         question: "What is one of the most popular Christmas foods in Kenya?",
         correct: "Nyama Choma",
-        incorrect: ["Christmas Pudding", "Fish"]
+        options: ["Christmas Pudding", "Fish", "Nyama Choma"]
 
     },
     {
         question: "How do you say Merry Christmas in Afrikaans?",
         correct: "Geseënde Kersfees",
-        incorrect: ["Joyeux Noël", "Frohe Weihnachten"]
+        options: ["Joyeux Noël", "Frohe Weihnachten", "Geseënde Kersfees"]
     }
 
 ]);
