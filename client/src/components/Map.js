@@ -17,12 +17,13 @@ import wishyoumerry from "../sounds/we_wish_you_a_merry_christmas.mp3"
 
 
 
+
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
     const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
-    const [play3] = useSound(wishyoumerry)
+    const [play3] = useSound(wishyoumerry);
 
     if (!countriesData) {
         return null
@@ -38,9 +39,6 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         console.log('event value is', event.target.value)
     }
 
-    // const SoundEffect = () => {
-    //     useSound(jingle_bells);
-    // }
 
 
     //MAP ZOOMING FUNCTIONS
@@ -58,6 +56,11 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         setPosition(position);
     }
 
+    //MAP CLICK FUNCTIONS
+    // const handleGeoClick = () => {
+    //     play2()
+    // }
+
 
     //MAP DATA
     const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -72,6 +75,10 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         {name: "Nicaragua", coordinates: [-85.2072, 12.8654]},
         {name: "Argentina", coordinates: [-67.3667, -37.1833]},
         {name: "Japan", coordinates: [138.2529, 36.2048]},
+        {name: "Algeria", coordinates: [1.6596, 28.0339]},
+        {name: "Kazakhstan", coordinates: [66.9237, 48.0196]},
+        {name: "India", coordinates: [78.9629, 20.5937]},
+        {name: "Brazil", coordinates: [-51.9253, -14.2350]},
     ];
 
 
@@ -146,9 +153,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 //     <b>Traditional Meal:</b> ${tooltipMeal}
                                                 //     `)
                                             } 
-                                            // else {
-                                            //     setTooltipContent(`${NAME}`)
-                                            // }
+                                            else {
+                                                setTooltipContent(`${NAME}`)
+                                            }
                                         }}
                                         onMouseLeave={() => {
                                             setTooltipContent("");
@@ -185,13 +192,13 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             <circle cx="12" cy="10" r="3" />
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </g>
-                                        {/* <text
+                                        <text
                                             textAnchor="middle"
                                             y="-27"
                                             style={{ fontFamily: "system-ui", fontSize: "11px", fontWeight: "400px" }}
                                         >
                                             {name}
-                                        </text> */}
+                                        </text>
                                 {/* <circle r={5} fill="#008011" /> */}
                                 {/* <a href=""><circle r={5} fill="#008011" /></a> */}
                                 {/* <img src={candyCane} alt=""> */}
