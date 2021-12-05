@@ -161,7 +161,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             setTooltipContent("");
                                         }}
                                         stroke="#FEFFFD"
-                                        strokeWidth="0.4"
+                                        strokeWidth="0.5"
                                         style={{
                                             default: {
                                                 fill: "#ffbdc4",
