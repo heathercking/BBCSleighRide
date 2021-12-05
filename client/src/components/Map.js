@@ -55,7 +55,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         {name: "United States of America", coordinates: [-100.8603, 38.2700]},
         {name: "Australia", coordinates: [136.2092, -26.5957]},
         {name: "Nicaragua", coordinates: [-85.2072, 12.8654]},
-        {name: "Argentina", coordinates: [-63.6167, -38.4161]},
+        {name: "Argentina", coordinates: [-67.3667, -37.1833]},
         {name: "Japan", coordinates: [138.2529, 36.2048]},
     ];
 
@@ -112,7 +112,8 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             console.log()
                                             if (found) {
                                                 const TOOLTIP = found[chosenFilter];
-                                                setTooltipContent(`<b>${TOOLTIP}</b><br><center>${NAME}</center>`)
+                                                const CONTINENT = found["continent"];
+                                                setTooltipContent(`<b>${TOOLTIP}</b><br><center>${NAME}, ${CONTINENT}</center>`)
                                                 // const tooltipContinent = found["continent"]
                                                 // const tooltipGreeting = found["greeting"]
                                                 // const tooltipCelebrated = found["celebrated"]
@@ -169,13 +170,13 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             <circle cx="12" cy="10" r="3" />
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </g>
-                                        <text
+                                        {/* <text
                                             textAnchor="middle"
                                             y="-27"
-                                            style={{ fontFamily: "system-ui", fontSize: "11px", fontWeight: "300px" }}
+                                            style={{ fontFamily: "system-ui", fontSize: "11px", fontWeight: "400px" }}
                                         >
                                             {name}
-                                        </text>
+                                        </text> */}
                                 {/* <circle r={5} fill="#008011" /> */}
                                 {/* <a href=""><circle r={5} fill="#008011" /></a> */}
                                 {/* <img src={candyCane} alt=""> */}
