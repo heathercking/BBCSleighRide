@@ -1,11 +1,19 @@
 import React from "react";
-import {withRouter} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import logo from '../images/logo.svg';
 
 function Header() {
+
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate('/');
+  }
+
+
+
   return (
     <nav className="nav-bar">
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Logo" onClick={handleClick}/>
 
       <ul>
 
