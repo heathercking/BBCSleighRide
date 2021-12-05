@@ -14,7 +14,7 @@ import candyCane from "../assets/candy_cane.svg"
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-    const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+    const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
 
     if (!countriesData) {
         return null
@@ -31,12 +31,12 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     //MAP ZOOMING FUNCTIONS
     function handleZoomIn() {
       if (position.zoom >= 4) return;
-      setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+      setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.2 }));
     }
   
     function handleZoomOut() {
       if (position.zoom <= 1) return;
-      setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+      setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.2 }));
     }
   
     function handleMoveEnd(position) {
@@ -68,8 +68,36 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas meal?</button>
             </div>
+
             <div className="card">
-                <ComposableMap data-tip="" width={800} height={500} projectionConfig={{ scale: 190 }}>
+                <div className="controls">
+                    <button onClick={handleZoomIn}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                    >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    </button>
+                    <button onClick={handleZoomOut}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    </button>
+                </div> 
+                <ComposableMap data-tip="" width={900} height={500} projectionConfig={{ scale: 190 }} onBlur>
                     <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                         <Geographies geography={geoUrl}>
                             {({geographies}) => geographies.map(geo =>
@@ -140,34 +168,8 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                         ))}
                     </ZoomableGroup>
                 </ComposableMap>
-                
-                <div className="controls">
-                    <button onClick={handleZoomIn}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                    >
-                        <line x1="12" y1="5" x2="12" y2="19" />
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    </button>
-                    <button onClick={handleZoomOut}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                    >
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                    </button>
-                </div> 
+
+
 
             </div>
         </div>
