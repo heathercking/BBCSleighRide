@@ -46,6 +46,10 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         // console.log(temp)
     }
 
+    const removePlayerGuesses = () => {
+        setRemainingGuesses(remainingGuesses -1);
+    }
+
 
 
     const shuffleArray = (array) => {
@@ -67,13 +71,14 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removePlayerGuesses = {removePlayerGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (
         <>
         {/* <p>hello</p> */}
-        <QuizWelcome/> 
+        <QuizWelcome/>
+
         {nodeItems.splice(0, 1)}
         {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
         </>
