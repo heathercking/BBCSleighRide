@@ -1,3 +1,5 @@
+
+
 html {
     font-family: system-ui, sans-serif;
     font-size: 1.25rem;
@@ -37,7 +39,11 @@ h1 {
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    /* cursor: pointer; */
+    cursor: url('../assets/sleigh_55_33.svg'), auto;
 }
+
+
 
 .map-filters {
     display: flex;
@@ -102,4 +108,5 @@ svg {
   .controls > button:first-child {
     margin-right: 0.25rem;
   }
+
 
