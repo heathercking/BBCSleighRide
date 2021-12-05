@@ -7,14 +7,18 @@ import {
     Marker,
     ZoomableGroup
 } from "react-simple-maps";
+import useSound from 'use-sound';
+
 import "../css/map.css";
 import candy_cane from "../assets/candy_cane.svg";
+import jingle_bells from "../assets/jingle_bells_cut.mp3";
 
 
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
     const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
+    const [play] = useSound(jingle_bells);
 
     if (!countriesData) {
         return null
@@ -26,6 +30,10 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         onFilterSelect(event.target.value);
         console.log('event value is', event.target.value)
     }
+
+    // const SoundEffect = () => {
+    //     useSound(jingle_bells);
+    // }
 
 
     //MAP ZOOMING FUNCTIONS
@@ -65,9 +73,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         
         <div className="map-container">
             <div className="map-filters">
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
+                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
+                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
+                <button onClick={handleChange, play} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
             </div>
 
             <div className="card">
@@ -113,7 +121,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             if (found) {
                                                 const TOOLTIP = found[chosenFilter];
                                                 const CONTINENT = found["continent"];
-                                                setTooltipContent(`<b>${TOOLTIP}</b><br><center>${NAME}, ${CONTINENT}</center>`)
+                                                setTooltipContent(`<center><b>${TOOLTIP}</b><br>${NAME}, ${CONTINENT}</center>`)
                                                 // const tooltipContinent = found["continent"]
                                                 // const tooltipGreeting = found["greeting"]
                                                 // const tooltipCelebrated = found["celebrated"]
