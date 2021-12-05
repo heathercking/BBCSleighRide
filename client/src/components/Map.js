@@ -20,33 +20,34 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         return null
       }
 
+    
+    //FOR WHEN FILTER BUTTONS ARE SELECTED
     const handleChange = (event) => {
         onFilterSelect(event.target.value);
         console.log('event value is', event.target.value)
     }
 
-    // console.log('chosen filter is', chosenFilter)
-
 
     //MAP ZOOMING FUNCTIONS
-    function handleZoomIn() {
-      if (position.zoom >= 4) return;
-      setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.2 }));
+    const handleZoomIn = () => {
+        if (position.zoom >= 4) return;
+        setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.2 }));
     }
   
-    function handleZoomOut() {
-      if (position.zoom <= 1) return;
-      setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.2 }));
+    const handleZoomOut = () => {
+        if (position.zoom <= 1) return;
+        setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.2 }));
     }
-  
-    function handleMoveEnd(position) {
-      setPosition(position);
+    
+    const handleMoveEnd = () => {
+        setPosition(position);
     }
 
 
     //MAP DATA
     const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
+    // these are set here to allow for easy adjustment (can set e.g. offset values for each individual pin, easier here than tweaking wihtin a DB)
     const markers = [
         {name: "France", coordinates: [2.349014, 48.864716]},
         {name: "South Africa", coordinates: [24.7499, -28.7282]},
