@@ -6,17 +6,21 @@ import candy_cane from '../../images/candy_cane.svg'
 import QuizTally from './QuizTally'
 
 
-const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQuestions, removePlayerGuesses, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, score, answeredQuestions, removePlayerGuesses, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
+    const [remainingGuesses, setRemainingGuesses] = useState(5);
 
-     const candyCanes = [...Array(remainingGuesses)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
+    const candyCanes = [...Array(remainingGuesses)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
+    
     
 
     useEffect(() => {
         getRandomOptions(question.options)
     }, [])
+
+
 
     function getRandomOptions(options) {
         shuffleArray(options)
@@ -27,22 +31,25 @@ const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQue
             setQuizAnswerIsCorrect(true);
         } else {
             setQuizAnswerIsCorrect(false);
+            setRemainingGuesses(remainingGuesses - 1)
         }
     }
+
+    
 
     const handleNext = (event) => {
         const newTotal = 0
         if (quizAnswerIsCorrect) {
             updateScore(score.correctQuestions + 1, score.incorrectQuestions, score.totalQuestions + 1)
         } else {
-            removePlayerGuesses()
             updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
         }
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }
 
-    return (
+    if (remainingGuesses) {
+        return (
         <div className="quiz-question">
             {candyCanes}
             <h4>{question.question}</h4>
@@ -62,6 +69,22 @@ const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQue
           
         </div>
     )
+    } else {
+        return (
+            <div className="lose-screem">
+                <h4>
+                    Oh no, you have run out of candies.
+                </h4>
+                <p>
+                    Click the cracker below to get more!
+                </p>
+                <button>
+                    play again
+                </button>
+            </div>
+        )
+    }
+    
 }
 
 export default QuizQuestion;

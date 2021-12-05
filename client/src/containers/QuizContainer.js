@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import QuizQuestion from "../components/Quiz/QuizQuestion";
 import QuizWelcome from '../components/Quiz/QuizWelcome'
 import QuizEnd from '../components/Quiz/QuizEnd'
@@ -14,8 +14,6 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
                                                 totalQuestions: 0
     });
 
-    const [remainingGuesses, setRemainingGuesses] = useState(5);
-   
     const questionsRemaining = questions.length;
 
     useEffect(() => {
@@ -47,7 +45,8 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     }
 
     const removePlayerGuesses = () => {
-        setRemainingGuesses(remainingGuesses -1);
+        console.log("removing guess")
+        // setRemainingGuesses(remainingGuesses -1);
     }
 
 
@@ -71,7 +70,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removePlayerGuesses = {removePlayerGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removePlayerGuesses = {removePlayerGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (
