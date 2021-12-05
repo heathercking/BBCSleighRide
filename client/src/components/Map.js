@@ -1,16 +1,20 @@
-import React, {memo} from "react";
+import React, {useState, memo} from "react";
 import { ReactDOM } from "react";
 import { 
     ComposableMap, 
     Geographies, 
     Geography, 
-    Marker
+    Marker,
+    ZoomableGroup
 } from "react-simple-maps";
 import "../css/map.css"
+import candyCane from "../assets/candy_cane.svg"
 
 
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
+
+    const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
     if (!countriesData) {
         return null
@@ -21,7 +25,23 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         console.log('event value is', event.target.value)
     }
 
-    console.log('chosen filter is', chosenFilter)
+    // console.log('chosen filter is', chosenFilter)
+
+
+    //MAP ZOOMING FUNCTIONS
+    function handleZoomIn() {
+      if (position.zoom >= 4) return;
+      setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+    }
+  
+    function handleZoomOut() {
+      if (position.zoom <= 1) return;
+      setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+    }
+  
+    function handleMoveEnd(position) {
+      setPosition(position);
+    }
 
 
     //MAP DATA
@@ -50,68 +70,106 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
             </div>
             <div className="card">
                 <ComposableMap data-tip="" width={800} height={500} projectionConfig={{ scale: 190 }}>
-                    <Geographies geography={geoUrl}>
-                        {({geographies}) => geographies.map(geo =>
-                                <Geography 
-                                    key={geo.rsmKey} 
-                                    geography={geo} 
-                                    onMouseEnter={() => {
-                                        const { NAME } = geo.properties;
-                                        const found = countriesData.find(country => country["name"] === NAME);
-                                        console.log(found)
-                                        console.log()
-                                        if (found) {
-                                            const TOOLTIP = found[chosenFilter];
-                                            setTooltipContent(`${TOOLTIP}`)
-                                            // const tooltipContinent = found["continent"]
-                                            // const tooltipGreeting = found["greeting"]
-                                            // const tooltipCelebrated = found["celebrated"]
-                                            // const tooltipDecorations = found["decorations"]
-                                            // const tooltipMeal = found["meal"]
-                                            // setTooltipContent(`
-                                            //     <b>Continent:</b> ${tooltipContinent}
-                                            //     <br>
-                                            //     <b>Greeting:</b> ${tooltipGreeting}
-                                            //     <br>
-                                            //     <b>Day Celebrated:</b> ${tooltipCelebrated}
-                                            //     <br>
-                                            //     <b>Traditional Decorations:</b> ${tooltipDecorations}
-                                            //     <br>
-                                            //     <b>Traditional Meal:</b> ${tooltipMeal}
-                                            //     `)
-                                        } else {
-                                            setTooltipContent(`${NAME}`)
-                                        }
-                                    }}
-                                    onMouseLeave={() => {
-                                        setTooltipContent("");
-                                    }}
-                                    style={{
-                                        default: {
-                                            fill: "#fca7a7",
-                                            outline: "none"
-                                        },
-                                        hover: {
-                                            fill: "#D20018",
-                                            outline: "none"
-                                        },
-                                        pressed: {
-                                            fill: "#008011",
-                                            outline: "none"
-                                        } 
-                                    }}
-                                    />
-                        )}
-                    </Geographies>
-                    {markers.map(({name, coordinates}) => (
-                        <Marker key={name} coordinates={coordinates}>
-                            <a href=""><circle r={5} fill="#008011" /></a>
-                            <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text>
-                        </Marker>
-                    ))}
-                </ComposableMap>    
-            </div>
+                    <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
+                        <Geographies geography={geoUrl}>
+                            {({geographies}) => geographies.map(geo =>
+                                    <Geography 
+                                        key={geo.rsmKey} 
+                                        geography={geo} 
+                                        onMouseEnter={() => {
+                                            const { NAME } = geo.properties;
+                                            const found = countriesData.find(country => country["name"] === NAME);
+                                            console.log(found)
+                                            console.log()
+                                            if (found) {
+                                                // const TOOLTIP = found[chosenFilter];
+                                                // setTooltipContent(`${TOOLTIP}`)
+                                                const tooltipContinent = found["continent"]
+                                                const tooltipGreeting = found["greeting"]
+                                                const tooltipCelebrated = found["celebrated"]
+                                                const tooltipDecorations = found["decorations"]
+                                                const tooltipMeal = found["meal"]
+                                                setTooltipContent(`
+                                                    <b>Continent:</b> ${tooltipContinent}
+                                                    <br>
+                                                    <b>Greeting:</b> ${tooltipGreeting}
+                                                    <br>
+                                                    <b>Day Celebrated:</b> ${tooltipCelebrated}
+                                                    <br>
+                                                    <b>Traditional Decorations:</b> ${tooltipDecorations}
+                                                    <br>
+                                                    <b>Traditional Meal:</b> ${tooltipMeal}
+                                                    `)
+                                            } else {
+                                                setTooltipContent(`${NAME}`)
+                                            }
+                                        }}
+                                        onMouseLeave={() => {
+                                            setTooltipContent("");
+                                        }}
+                                        stroke="#FEFFFD"
+                                        strokeWidth="0.4"
+                                        style={{
+                                            default: {
+                                                fill: "#ffbdc4",
+                                                outline: "none"
+                                            },
+                                            hover: {
+                                                fill: "#008011",
+                                                outline: "none"
+                                            },
+                                            pressed: {
+                                                fill: "#008011",
+                                                outline: "none"
+                                            } 
+                                        }}
+                                        />
+                            )}
+                        </Geographies>
+                        {markers.map(({name, coordinates}) => (
+                            <Marker key={name} coordinates={coordinates}>
+                                <a href=""><circle r={5} fill="#008011" /></a>
+                                {/* <img src={candyCane} alt=""> */}
+                                {/* <circle>{candyCane}</circle> */}
+                                {/* <g>
+                                    <image>{candyCane}</image>
+                                </g> */}
+                                
+                                <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text>
+                            </Marker>
+                        ))}
+                    </ZoomableGroup>
+                </ComposableMap>
+                
+                <div className="controls">
+                    <button onClick={handleZoomIn}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                    >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    </button>
+                    <button onClick={handleZoomOut}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    </button>
+                </div> 
 
+            </div>
         </div>
     </>
     )

@@ -14,7 +14,7 @@ const BBCSleighRide = () => {
 
     const [countries, setCountries] = useState([]);
     const [content, setContent] = useState("");
-    const [selectedMapFilter, setSelectedMapFilter] = useState("");
+    const [selectedMapFilter, setSelectedMapFilter] = useState("greeting");
 
     useEffect(() => {
         getCountries();
