@@ -15,6 +15,8 @@ const BBCSleighRide = () => {
                                                 incorrectQuestions: 0,
                                                 totalQuestions: 0
     });
+
+    const [remainingGuesses, setRemainingGuesses] = useState(5);
    
 
     useEffect(() => {
@@ -36,6 +38,7 @@ const BBCSleighRide = () => {
             })
     }
 
+
     const removeQuizQuestion = (question) => {
         let temp = questions.map(question => question);
         const indexToDelete = questions.map(questions => questions._id).indexOf(question._id);
@@ -50,7 +53,7 @@ const BBCSleighRide = () => {
         <>
         {/* <Header/> */}
         {/* <Map/> */}
-        <Quiz questions = {questions} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore}/>
+        <Quiz questions = {questions} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore}/>
         {/* <Joke /> */}
         {/* <Footer /> */}
         </>

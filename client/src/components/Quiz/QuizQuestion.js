@@ -2,9 +2,10 @@ import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import {nextQuestion} from '../../services/QuizLogic'
+import QuizTally from './QuizTally'
 
 
-const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
@@ -47,6 +48,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     return (
         <div className="quiz-question">
             <h4>{question.question}</h4>
+            <QuizTally remainingGuesses = {remainingGuesses} />
             <p>{question.correct}</p>
             <ul>
                 <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[0]}</li>

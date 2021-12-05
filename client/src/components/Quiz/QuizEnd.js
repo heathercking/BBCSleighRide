@@ -1,10 +1,11 @@
 import react from 'react';
+import QuizScore from './QuizScore';
 
-const QuizEnd = ({questionsRemaining})  => {
+const QuizEnd = ({questionsRemaining, score})  => {
     return (
-         <div className="end-of-quiz" style={{display: questionsRemaining ? 'none' : 'block'}}>
+         <div className="end-of-quiz">
             <h2>You have finished the quiz hooray!</h2>
-            <p></p>
+            <QuizScore score = {score}/>
         </div>
     )
 }

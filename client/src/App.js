@@ -3,7 +3,9 @@ import BBCSleighRide from './containers/BBCSleighRide';
 
 function App() {
   return (
+    <>
     <BBCSleighRide />
+    </>
   );
 }
 

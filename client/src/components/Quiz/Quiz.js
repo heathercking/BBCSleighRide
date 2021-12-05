@@ -3,7 +3,7 @@ import QuizQuestion from "./QuizQuestion";
 import QuizWelcome from './QuizWelcome'
 import QuizEnd from './QuizEnd'
 
-const Quiz = ({questions, score, removeQuizQuestion, updateScore, onAnswerCheck, quizAnswerIsCorrect}) => {
+const Quiz = ({questions, score, remainingGuesses, removeQuizQuestion, updateScore, onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const questionsRemaining = questions.length;
 
@@ -26,14 +26,14 @@ const Quiz = ({questions, score, removeQuizQuestion, updateScore, onAnswerCheck,
     
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (
         <>
         <QuizWelcome/> 
         {nodeItems.splice(0, 1)}
-        {questionsRemaining == 0 ? <QuizEnd /> : null}
+        {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
         </>
     )
 }
