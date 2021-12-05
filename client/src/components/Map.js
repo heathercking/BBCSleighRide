@@ -112,7 +112,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             console.log()
                                             if (found) {
                                                 const TOOLTIP = found[chosenFilter];
-                                                setTooltipContent(`<b>${TOOLTIP}</b>`)
+                                                setTooltipContent(`<b>${TOOLTIP}</b><br><center>${NAME}</center>`)
                                                 // const tooltipContinent = found["continent"]
                                                 // const tooltipGreeting = found["greeting"]
                                                 // const tooltipCelebrated = found["celebrated"]
@@ -158,14 +158,33 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                         </Geographies>
                         {markers.map(({name, coordinates}) => (
                             <Marker key={name} coordinates={coordinates}>
-                                <a href=""><circle r={5} fill="#008011" /></a>
+                                          <g
+                                            fill="none"
+                                            stroke="#008011"
+                                            strokeWidth="2.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            transform="translate(-12, -24)"
+                                        >
+                                            <circle cx="12" cy="10" r="3" />
+                                            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                                        </g>
+                                        <text
+                                            textAnchor="middle"
+                                            y="-27"
+                                            style={{ fontFamily: "system-ui", fontSize: "11px", fontWeight: "300px" }}
+                                        >
+                                            {name}
+                                        </text>
+                                {/* <circle r={5} fill="#008011" /> */}
+                                {/* <a href=""><circle r={5} fill="#008011" /></a> */}
                                 {/* <img src={candyCane} alt=""> */}
                                 {/* <circle>{candyCane}</circle> */}
                                 {/* <g>
                                     <image>{candyCane}</image>
-                                </g> */}
-                                
-                                <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text>
+                                </g>
+                                 */}
+                                {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text> */}
                                 {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}><img src={candy_cane} alt=""></text> */}
                             </Marker>
                         ))}
