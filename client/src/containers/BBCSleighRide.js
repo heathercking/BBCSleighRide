@@ -10,11 +10,11 @@ const BBCSleighRide = () => {
 
     return (
         <>
-        <Header/>
-        <Map/>
+          <p>This is the homepage</p>
+        {/* <Map/>
         <Quiz/>
         <Joke />
-        <Footer />
+        <Footer /> */}
         </>
     )
 }
