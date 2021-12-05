@@ -112,7 +112,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             console.log()
                                             if (found) {
                                                 const TOOLTIP = found[chosenFilter];
-                                                setTooltipContent(`${TOOLTIP}`)
+                                                setTooltipContent(`<b>${TOOLTIP}</b>`)
                                                 // const tooltipContinent = found["continent"]
                                                 // const tooltipGreeting = found["greeting"]
                                                 // const tooltipCelebrated = found["celebrated"]
@@ -129,9 +129,10 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 //     <br>
                                                 //     <b>Traditional Meal:</b> ${tooltipMeal}
                                                 //     `)
-                                            } else {
-                                                setTooltipContent(`${NAME}`)
-                                            }
+                                            } 
+                                            // else {
+                                            //     setTooltipContent(`${NAME}`)
+                                            // }
                                         }}
                                         onMouseLeave={() => {
                                             setTooltipContent("");
@@ -144,7 +145,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 outline: "none"
                                             },
                                             hover: {
-                                                fill: "#008011",
+                                                fill: "#D20018",
                                                 outline: "none"
                                             },
                                             pressed: {

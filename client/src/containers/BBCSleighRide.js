@@ -36,7 +36,7 @@ const BBCSleighRide = () => {
         <>
         <Header/>
         <Map countriesData={countries} setTooltipContent={setContent} onFilterSelect={handleSelectedMapFilter} chosenFilter={selectedMapFilter} />
-        <ReactTooltip multiline={true} html={true}>{content}</ReactTooltip>
+        <ReactTooltip type="dark" effect="float" multiline={true} html={true} border={true} borderColor="#D20018" scrollHide={true}>{content}</ReactTooltip>
         <Quiz/>
         <Joke />
         <Footer />
