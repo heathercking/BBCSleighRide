@@ -19,9 +19,29 @@ db.countries.insertMany([
         song: "TBD",
         greeting: "Geseënde Kersfees (‘Merry Christmas’ in Afrikaans)",
         celebrated: "25th December",
-        meal: "Lots of meat… and a traditional South African dessert called Malva Pudding.",
+        meal: "Lots of meat… and a traditional South African dessert called Malva Pudding",
         decorations: "A Christmas tree (not a real one!)",
         didyouknow: "Santa Claus is also known as Sinterklaas (St Nicholas)"
+    },
+    {
+        name: "United States of America",
+        continent: "North America",
+        song: "TBD",
+        greeting: "Happy Holidays",
+        celebrated: "25th December",
+        meal: "Turkey and mashed potatoes",
+        decorations: "Christmas lights, and sometimes even model Santa Claus, snowmen and reindeer",
+        didyouknow: "Santa was not always red, he wore green before Coca Cola"
+    },
+    {
+        name: "Ausralia",
+        continent: "Australasia",
+        song: "TBD",
+        greeting: "Merry Christmas",
+        celebrated: "25th December",
+        meal: "BBQ, cold meats, and Christmas pudding",
+        decorations: "Christmas Trees and Christmas lights. Neighbors sometimes have little competitions for the best light display.",
+        didyouknow: "It’s summer in Australia at Christmas, so many Australians spend Christmas on the beach!"
     }
 ]);
 
