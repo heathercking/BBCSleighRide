@@ -87,10 +87,10 @@ db.countries.insertMany([
 
 db.jokes.insertMany([
     {
-        joke1: "What do you get when you cross a Christmas tree with an apple?",
+        joke: "What do you get when you cross a Christmas tree with an apple?",
         punchline: "A pineapple!"
     },
-    {   joke2: "Why was the snowman looking through the carrots?",
+    {   joke: "Why was the snowman looking through the carrots?",
         punchline: "He was picking his nose!"
     }
 ]);
