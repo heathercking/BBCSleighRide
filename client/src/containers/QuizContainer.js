@@ -6,7 +6,7 @@ import {getQuestions} from '../services/SleighRideService'
 
 const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
-  
+
     const [questions, setQuestions] = useState([]);
     var [score, setScore] = useState({
                                                 correctQuestions: 0,
@@ -15,7 +15,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     });
 
     const [remainingGuesses, setRemainingGuesses] = useState(5);
-   
+
     const questionsRemaining = questions.length;
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
-        
+
         while (currentIndex != 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
@@ -64,7 +64,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const shuffledQuestions = shuffleArray(questions);
 
-    
+
     const nodeItems = shuffledQuestions.map(question => {
         return (
             <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
@@ -73,7 +73,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     return (
         <>
         {/* <p>hello</p> */}
-        <QuizWelcome/> 
+        <QuizWelcome/>
         {nodeItems.splice(0, 1)}
         {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
         </>
