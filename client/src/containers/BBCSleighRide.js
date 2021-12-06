@@ -40,10 +40,28 @@ const BBCSleighRide = () => {
         <Footer /> */}
         {/* <Header/> */}
         {/* <MapContainer/> */}
-        <img className="cracker" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
-        <img className="cracker" src={mapCracker} alt="Joke" onClick={handleMapClick}/>
-        <img className="cracker" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+        <div className="main-section">
+          <div className="countdown">
+            <h1>Coundown to Christmas....</h1>
+          </div>
+          <div className="learning-grid">
+            <div>
+              <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
+            </div>
+            <div>
+              <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
+            </div>
+          </div> 
+            <div className="fun-grid">
+              <h2>let it snow</h2>
+              <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+              <h2>random?</h2>
+            </div>
+             
+        </div>
 
+         
+        
         {/* <Quiz questions = {questions} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore}/> */}
         {/* <Joke /> */}
         {/* <Footer /> */}
