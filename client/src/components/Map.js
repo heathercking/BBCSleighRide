@@ -10,7 +10,8 @@ import {
 import useSound from 'use-sound';
 
 import "../css/map.css";
-import candy_cane from "../assets/candy_cane.svg";
+import candy_cane from "../assets/candy_cane_small.svg";
+import sleigh from "../assets/sleigh_55_33.svg";
 import jingle_bells from "../sounds/jingle_bells_cut.mp3";
 import hohoho from "../sounds/hohoho.mp3";
 import wishyoumerry from "../sounds/we_wish_you_a_merry_christmas.mp3"
@@ -20,7 +21,7 @@ import wishyoumerry from "../sounds/we_wish_you_a_merry_christmas.mp3"
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-    const [position, setPosition] = useState({ coordinates: [7, 6], zoom: 1.1 });
+    const [position, setPosition] = useState({ coordinates: [10, 8], zoom: 1.15 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
@@ -192,6 +193,11 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             <circle cx="12" cy="10" r="3" />
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </g>
+                                        
+                                        {/* <g>
+                                        <img src={sleigh}/>
+                                        </g> */}
+
                                         <text
                                             textAnchor="middle"
                                             y="-27"
@@ -203,10 +209,8 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                 {/* <a href=""><circle r={5} fill="#008011" /></a> */}
                                 {/* <img src={candyCane} alt=""> */}
                                 {/* <circle>{candyCane}</circle> */}
-                                {/* <g>
-                                    <image>{candyCane}</image>
-                                </g>
-                                 */}
+
+                                
                                 {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text> */}
                                 {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}><img src={candy_cane} alt=""></text> */}
                             </Marker>
