@@ -82,12 +82,14 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         )
     })
     return (
-        <>
-        {/* <p>hello</p> */}
-        {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
-        {nodeItems.splice(0, 1)}
-        {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
-        </>
+        <div className="quiz-container">
+            {/* <p>hello</p> */}
+            {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
+            {readyToPlay ? <div>
+            {nodeItems.splice(0, 1)}
+            {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
+            </div>: null}
+        </div>
     )
 }
 
