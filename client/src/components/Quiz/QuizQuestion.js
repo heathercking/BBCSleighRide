@@ -9,6 +9,12 @@ const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQue
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
+    const [remainingGuesses, setRemainingGuesses] = useState(5);
+    const [index, setIndex] = useState(0);
+
+    const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
+
+
     
     useEffect(() => {
         getRandomOptions(question.options)
@@ -27,6 +33,8 @@ const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQue
             // console.log(quizAnswerIsCorrect)
         } else {
             setQuizAnswerIsCorrect(false);
+            setRemainingGuesses(remainingGuesses -1)
+            document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
         }
     }
 
@@ -45,24 +53,44 @@ const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQue
         removeQuizQuestion(question)
     }
 
-    return (
-        <div className="quiz-question">
-            <h4>{question.question}</h4>
-            <QuizTally remainingGuesses = {remainingGuesses} />
-            <p>{question.correct}</p>
-            <ul>
-                <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[0]}</li>
-                <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[1]}</li>
-                <li className="quiz-question-option quiz-option3" onClick = {handleClick}>{question.options[2]}</li>
-            </ul>
-            <button onClick = {handleNext}>Next</button>
-            <button>Exit</button>
+    if (remainingGuesses) {
+        return (
+            <div className="quiz-question">
+                <h4>{question.question}</h4>
+                <QuizTally remainingGuesses = {remainingGuesses} />
+                <p>{question.correct}</p>
+                <ul>
+                    <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[0]}</li>
+                    <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[1]}</li>
+                    <li className="quiz-question-option quiz-option3" onClick = {handleClick}>{question.options[2]}</li>
+                </ul>
+                <button onClick = {handleNext}>Next</button>
+                <button>Exit</button>
+    
+            <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>
+            <BsFillXCircleFill  style={{display: quizAnswerIsCorrect == false ? 'block' : 'none'}}></BsFillXCircleFill>
+              
+            </div>
+        )
+        
+    } else {
+        return (
+            <div className="lose-screen">
+                <h4>
+                    Oh no, you have run out of candies.
+                </h4>
+                <p>
+                    Click the cracker below to get more!
+                </p>
+                <button>
+                    play again
+                </button>
+            </div>
+        )
 
-        <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>
-        <BsFillXCircleFill  style={{display: quizAnswerIsCorrect == false ? 'block' : 'none'}}></BsFillXCircleFill>
-          
-        </div>
-    )
+    }
+
+    
 }
 
 export default QuizQuestion;
