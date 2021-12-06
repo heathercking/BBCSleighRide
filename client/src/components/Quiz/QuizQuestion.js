@@ -36,6 +36,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
             setRemainingGuesses(remainingGuesses - 1)
             document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
             // setIsTrue(false);
+            // VComment for merging
         }
     }
 
