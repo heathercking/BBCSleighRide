@@ -72,7 +72,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} removePlayerGuesses = {removePlayerGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (

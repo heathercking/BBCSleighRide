@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import {nextQuestion} from '../../services/QuizLogic'
 import QuizTally from './QuizTally'
+import candy_cane from '../../assets/images/candy_cane.svg';
 
 
 const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
@@ -15,10 +16,10 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
 
 
-    
+
     useEffect(() => {
         getRandomOptions(question.options)
-        
+
     }, [])
 
     function getRandomOptions(options) {
@@ -48,7 +49,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
         } else {
             updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
         }
-        
+
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }
@@ -66,13 +67,13 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
                 </ul>
                 <button onClick = {handleNext}>Next</button>
                 <button>Exit</button>
-    
+
             <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>
             <BsFillXCircleFill  style={{display: quizAnswerIsCorrect == false ? 'block' : 'none'}}></BsFillXCircleFill>
-              
+
             </div>
         )
-        
+
     } else {
         return (
             <div className="lose-screen">
@@ -90,7 +91,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
 
     }
 
-    
+
 }
 
 export default QuizQuestion;

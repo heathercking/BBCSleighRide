@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Header from './components/Header';
+import Footer from './components/Footer';
 import JokeContainer from './containers/JokeContainer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
@@ -31,6 +32,8 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
 
       </Routes>
+
+      <Footer />
 
 
     </Router>
