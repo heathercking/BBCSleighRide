@@ -9,6 +9,7 @@ import {
 import Header from './components/Header';
 import JokeContainer from './containers/JokeContainer';
 import QuizContainer from './containers/QuizContainer';
+import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         <Route path="/joke" element={<JokeContainer />} />
 
         <Route path="/quiz" element={<QuizContainer />} />
+
+        <Route path="/map" element={<MapContainer />} />
 
         <Route path="*" element={<ErrorPage />} />
 
