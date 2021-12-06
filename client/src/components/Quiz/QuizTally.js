@@ -10,13 +10,11 @@ const QuizTally = ({remainingGuesses, candyCanes}) => {
 
   return (
     <>
-
     <CSSTransition timeout={700} classNames="item">
     <button type="button" onClick={() => setInProp(false)}>
         Click to Enter
       </button>
       </CSSTransition>
-    
     </>
   );
 }

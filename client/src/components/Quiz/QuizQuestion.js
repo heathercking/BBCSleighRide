@@ -56,19 +56,12 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
         return (
         <div className="quiz-question">
             <h4>{question.question}</h4>
-            
-            
             <>
             {candyCanes}
             </>
-         
-            
-            
-            
             <QuizTally remainingGuesses = {remainingGuesses}/>
             <p>{question.correct}</p>
             <ul>
-                
                 <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[0]}</li>
                 <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[1]}</li>
                 <li className="quiz-question-option quiz-option3" onClick = {handleClick}>{question.options[2]}</li>
@@ -96,7 +89,6 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
             </div>
         )
     }
-    
 }
 
 export default QuizQuestion;
