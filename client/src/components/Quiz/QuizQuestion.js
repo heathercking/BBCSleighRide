@@ -5,7 +5,7 @@ import {nextQuestion} from '../../services/QuizLogic'
 import QuizTally from './QuizTally'
 
 
-const QuizQuestion = ({questions, question, score, remainingGuesses, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
