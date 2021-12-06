@@ -45,8 +45,23 @@
   width: 20px;
 }
 
-.item-exit-active {
-  opacity: 0;
-  transition: opacity 700ms ease-out;
+.hidden-candy {
+  height: 20px;
+  width: 20px;
+  animation-duration: 1.5s;
+  animation-name: fadeOut;
+  animation-fill-mode: forwards;
 }
 
+.hello {
+  height:200px;
+}
+
+@keyframes fadeOut {
+  from {
+  	opacity: 1;
+  }
+  to {
+ 	opacity: 0;
+  }
+}

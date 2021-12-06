@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
+import { useTransition, animated } from 'react-spring';
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import {nextQuestion} from '../../services/QuizLogic'
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import candy_cane from '../../images/candy_cane.svg'
 import QuizTally from './QuizTally'
 
@@ -11,8 +13,9 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
     const [remainingGuesses, setRemainingGuesses] = useState(5);
+    const [index, setIndex] = useState(0);
 
-    const candyCanes = [...Array(remainingGuesses)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
+    const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
 
     
     useEffect(() => {
@@ -31,6 +34,8 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
         } else {
             setQuizAnswerIsCorrect(false);
             setRemainingGuesses(remainingGuesses - 1)
+            document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
+            // setIsTrue(false);
         }
     }
 
@@ -50,10 +55,17 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removePlay
     if (remainingGuesses) {
         return (
         <div className="quiz-question">
-            
             <h4>{question.question}</h4>
-            <QuizTally remainingGuesses = {remainingGuesses}/>
+            
+            
+            <>
             {candyCanes}
+            </>
+         
+            
+            
+            
+            <QuizTally remainingGuesses = {remainingGuesses}/>
             <p>{question.correct}</p>
             <ul>
                 
