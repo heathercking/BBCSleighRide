@@ -1,12 +1,15 @@
 import React from "react"; 
+import "../css/Joke.css";
 
-const Joke = ({jokes, onButtonClick}) => {
-    const handleClick = function(){
-        onButtonClick(jokes);
-    }
+const Joke = ({joke}) => {
 
-    return <button onClick={handleClick}>Make Me Laugh</button>
 
-}
+    return (
+    <div className="joke-card">
+        <div className = "joke-title">{joke.joke}
+            <p className = "punchline">{joke.punchline}</p>
+        </div>
+    </div>
+    )}
 
 export default Joke;
