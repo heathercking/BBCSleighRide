@@ -13,6 +13,8 @@ import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
 import mapCracker from '../assets/images/christmas_cracker.svg';
 import '../css/BBCSleighRide.css';
 
+import Snowflakes from "magic-snowflakes";
+
 
 
 const BBCSleighRide = () => {
@@ -31,6 +33,8 @@ const BBCSleighRide = () => {
   function handleMapClick() {
     navJoke('/map');
   }
+
+  // const snowflakes = new Snowflakes();
 
     return (
         <>
