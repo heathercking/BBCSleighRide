@@ -19,7 +19,6 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
 
     useEffect(() => {
         getRandomOptions(question.options)
-
     }, [])
 
     function getRandomOptions(options) {
@@ -58,7 +57,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
         return (
             <div className="quiz-question">
                 <h4>{question.question}</h4>
-                <QuizTally remainingGuesses = {remainingGuesses} />
+                {candyCanes}
                 <p>{question.correct}</p>
                 <ul>
                     <li className="quiz-question-option quiz-option1" onClick = {handleClick}>{question.options[0]}</li>
