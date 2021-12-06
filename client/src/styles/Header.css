@@ -1,0 +1,11 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: #9D0A0D;
+  height: 10rem;
+}
+
+.logo {
+  cursor: pointer;
+  width: 200px;
+}
