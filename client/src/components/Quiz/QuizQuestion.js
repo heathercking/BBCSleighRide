@@ -7,7 +7,7 @@ import QuizTally from './QuizTally'
 import candy_cane from '../../assets/images/candy_cane.svg';
 
 
-const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, updateScore, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, replayQuiz, updateScore, shuffleArray, onAnswerCheck}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
@@ -52,6 +52,10 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     function handleExit() {
         navigate('/');
     }
+
+    const handleReplay = (event) => {
+        replayQuiz()
+    }
  
 
     if (remainingGuesses) {
@@ -83,7 +87,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
                 <p>
                     Click the cracker below to get more!
                 </p>
-                <button>
+                <button onClick = {handleReplay}>
                     play again
                 </button>
             </div>
