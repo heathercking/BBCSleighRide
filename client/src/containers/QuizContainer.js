@@ -3,6 +3,7 @@ import QuizQuestion from "../components/Quiz/QuizQuestion";
 import QuizWelcome from '../components/Quiz/QuizWelcome'
 import QuizEnd from '../components/Quiz/QuizEnd'
 import {getQuestions} from '../services/SleighRideService'
+import { ComposableMap } from "react-simple-maps";
 
 const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
@@ -14,7 +15,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
                                                 totalQuestions: 0
     });
 
-    const [remainingGuesses, setRemainingGuesses] = useState(5);
+    // const [remainingGuesses, setRemainingGuesses] = useState(5);
 
     const questionsRemaining = questions.length;
 
@@ -46,6 +47,10 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         // console.log(temp)
     }
 
+    // const removePlayerGuesses = () => {
+    //     Console.log("removing guesses")
+    // }
+
 
 
     const shuffleArray = (array) => {
@@ -67,7 +72,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removePlayerGuesses = {removePlayerGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} onAnswerCheck = {onAnswerCheck}/>
         )
     })
     return (
