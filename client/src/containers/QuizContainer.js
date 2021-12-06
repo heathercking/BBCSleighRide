@@ -4,11 +4,14 @@ import QuizWelcome from '../components/Quiz/QuizWelcome'
 import QuizEnd from '../components/Quiz/QuizEnd'
 import {getQuestions} from '../services/SleighRideService'
 import { ComposableMap } from "react-simple-maps";
+import '../css/Quiz.css';
+
 
 const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
 
     const [questions, setQuestions] = useState([]);
+    const [readyToPlay, setReadyToPlay] = useState(false)
     var [score, setScore] = useState({
                                                 correctQuestions: 0,
                                                 incorrectQuestions: 0,
@@ -51,8 +54,6 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     //     Console.log("removing guesses")
     // }
 
-
-
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
 
@@ -68,7 +69,17 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         }
 
     const shuffledQuestions = shuffleArray(questions);
+        const onButtonClick =  () => {
+            setReadyToPlay(true)
+        }
 
+    const replayQuiz = () => {
+        setReadyToPlay(false)
+        getQuestions()
+        .then(data => {
+            setQuestions(data)
+        })
+    }
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
@@ -76,12 +87,14 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         )
     })
     return (
-        <>
-        {/* <p>hello</p> */}
-        <QuizWelcome/>
-        {nodeItems.splice(0, 1)}
-        {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
-        </>
+        <div className="quiz-container">
+            {/* <p>hello</p> */}
+            {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
+            {readyToPlay ? <div>
+            {nodeItems.splice(0, 1)}
+            {questionsRemaining == 0 ? <QuizEnd  score = {score} replayQuiz = {replayQuiz}/> : null}
+            </div>: null}
+        </div>
     )
 }
 
