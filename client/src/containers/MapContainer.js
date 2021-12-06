@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import ReactTooltip from 'react-tooltip';
 
 import Map from "../components/Map";
+import "../css/mapcontainer.css";
 
 
 
