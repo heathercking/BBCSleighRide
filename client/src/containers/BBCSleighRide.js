@@ -11,7 +11,7 @@ import {useNavigate} from 'react-router-dom';
 import quizCracker from '../assets/images/christmas_cracker_quiz.svg';
 import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
 import mapCracker from '../assets/images/christmas_cracker.svg';
-import '../styles/BBCSleighRide.css';
+import '../css/BBCSleighRide.css';
 
 
 

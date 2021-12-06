@@ -1,5 +1,5 @@
 import React from 'react';
-import sleigh from '../images/sleigh.svg';
+import sleigh from '../assets/images/sleigh.svg';
 
 function ErrorPage() {
   return (
