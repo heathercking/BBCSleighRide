@@ -1,20 +1,19 @@
 import React, {useState, memo} from "react";
 import { ReactDOM } from "react";
-import { 
-    ComposableMap, 
-    Geographies, 
-    Geography, 
+import {
+    ComposableMap,
+    Geographies,
+    Geography,
     Marker,
     ZoomableGroup
 } from "react-simple-maps";
 import useSound from 'use-sound';
 
 import "../css/map.css";
-import candy_cane from "../assets/candy_cane_small.svg";
-import sleigh from "../assets/sleigh_55_33.svg";
-import jingle_bells from "../sounds/jingle_bells_cut.mp3";
-import hohoho from "../sounds/hohoho.mp3";
-import wishyoumerry from "../sounds/we_wish_you_a_merry_christmas.mp3"
+import sleigh from "../assets/images/sleigh_55_33.svg";
+import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
+import hohoho from "../assets/sounds/hohoho.mp3";
+import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3"
 
 
 
@@ -30,7 +29,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         return null
       }
 
-    
+
     //FOR WHEN FILTER BUTTONS ARE SELECTED
     const handleChange = (event) => {
         const playArray = [play1, play2, play3]
@@ -47,12 +46,12 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         if (position.zoom >= 4) return;
         setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.2 }));
     }
-  
+
     const handleZoomOut = () => {
         if (position.zoom <= 1) return;
         setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.2 }));
     }
-    
+
     const handleMoveEnd = () => {
         setPosition(position);
     }
@@ -85,7 +84,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
 
     return (
         <>
-        
+
         <div className="map-container">
             <div className="map-filters">
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
@@ -120,14 +119,14 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                         <line x1="5" y1="12" x2="19" y2="12" />
                     </svg>
                     </button>
-                </div> 
+                </div>
                 <ComposableMap data-tip="" width={900} height={450} projectionConfig={{ scale: 190 }} onBlur>
                     <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                         <Geographies geography={geoUrl}>
                             {({geographies}) => geographies.map(geo =>
-                                    <Geography 
-                                        key={geo.rsmKey} 
-                                        geography={geo} 
+                                    <Geography
+                                        key={geo.rsmKey}
+                                        geography={geo}
                                         onMouseEnter={() => {
                                             const { NAME } = geo.properties;
                                             const found = countriesData.find(country => country["name"] === NAME);
@@ -153,7 +152,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 //     <br>
                                                 //     <b>Traditional Meal:</b> ${tooltipMeal}
                                                 //     `)
-                                            } 
+                                            }
                                             else {
                                                 setTooltipContent(`${NAME}`)
                                             }
@@ -175,7 +174,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             pressed: {
                                                 fill: "#008011",
                                                 outline: "none"
-                                            } 
+                                            }
                                         }}
                                         />
                             )}
@@ -193,7 +192,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             <circle cx="12" cy="10" r="3" />
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </g>
-                                        
+
                                         {/* <g>
                                         <img src={sleigh}/>
                                         </g> */}
@@ -210,7 +209,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                 {/* <img src={candyCane} alt=""> */}
                                 {/* <circle>{candyCane}</circle> */}
 
-                                
+
                                 {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text> */}
                                 {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}><img src={candy_cane} alt=""></text> */}
                             </Marker>

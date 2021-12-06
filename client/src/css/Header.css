@@ -1,0 +1,28 @@
+.nav-bar {
+  /* position: fixed; */
+  width: 100%;
+  background-color: #9D0A0D;
+  height: 130px;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  width: 300px;
+  margin: 0px 20px;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar .link {
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

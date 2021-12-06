@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import logo from '../images/logo.svg';
-import '../styles/Header.css';
+import logo from '../assets/images/logo.svg';
+import '../css/Header.css';
 
 function Header() {
 
@@ -11,14 +11,17 @@ function Header() {
   }
 
   return (
-    <nav className="nav-bar">
-      <img className ="logo" src={logo} alt="Logo" onClick={handleClick}/>
-
-      <ul>
-        <li>Blog</li>
-        <li>Santa</li>
-      </ul>
-    </nav>
+    <div className="nav-bar">
+      <div className="nav-flex">
+        <img className ="logo" src={logo} alt="Logo" onClick={handleClick}/>
+        <nav className="options">
+          <ul>
+            <div className="link">Blog</div>
+            <div className="link">Santa</div>
+          </ul>
+        </nav>
+      </div>
+    </div>
   )
 }
 
