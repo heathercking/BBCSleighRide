@@ -6,3 +6,10 @@ export const getQuestions = () => {
         .then(res => res.json())
     )
 }
+
+export const getJokes = () => {
+    return(
+        fetch(baseURL + "jokes")
+        .then(res => res.json())
+    )
+}
