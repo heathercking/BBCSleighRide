@@ -20,15 +20,13 @@ function App() {
 
       <Header />
 
-        <div className="main-section">
           <Routes>
             <Route path="/" element={<BBCSleighRide />} />
-            <Route path="/joke" element={<JokeContainer />} />
-            <Route path="/quiz" element={<QuizContainer />} />
             <Route path="/map" element={<MapContainer />} />
+            <Route path="/quiz" element={<QuizContainer />} />
+            <Route path="/joke" element={<JokeContainer />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        </div>
 
       <Footer />
 
