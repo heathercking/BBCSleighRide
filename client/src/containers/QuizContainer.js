@@ -54,8 +54,6 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     //     Console.log("removing guesses")
     // }
 
-
-
     const shuffleArray = (array) => {
         let currentIndex = array.length, randomIndex;
 
@@ -71,10 +69,17 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         }
 
     const shuffledQuestions = shuffleArray(questions);
-
         const onButtonClick =  () => {
             setReadyToPlay(true)
         }
+
+    const replayQuiz = () => {
+        setReadyToPlay(false)
+        getQuestions()
+        .then(data => {
+            setQuestions(data)
+        })
+    }
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
@@ -87,7 +92,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
             {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
             {readyToPlay ? <div>
             {nodeItems.splice(0, 1)}
-            {questionsRemaining == 0 ? <QuizEnd score = {score}/> : null}
+            {questionsRemaining == 0 ? <QuizEnd  score = {score} replayQuiz = {replayQuiz}/> : null}
             </div>: null}
         </div>
     )
