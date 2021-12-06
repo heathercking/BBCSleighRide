@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
+import {useNavigate} from 'react-router-dom';
 import {nextQuestion} from '../../services/QuizLogic'
 import QuizTally from './QuizTally'
 import candy_cane from '../../assets/images/candy_cane.svg';
@@ -12,9 +13,9 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
     const [remainingGuesses, setRemainingGuesses] = useState(5);
     const [index, setIndex] = useState(0);
+    let navigate = useNavigate();
 
     const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
-
 
 
     useEffect(() => {
@@ -26,11 +27,8 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     }
 
     const handleClick = (event) => {
-        // console.log(event.target.innerHTML)
         if (event.target.innerHTML == question.correct) {
-            // console.log("Hurray")
             setQuizAnswerIsCorrect(true);
-            // console.log(quizAnswerIsCorrect)
         } else {
             setQuizAnswerIsCorrect(false);
             setRemainingGuesses(remainingGuesses -1)
@@ -39,8 +37,6 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     }
 
     const handleNext = (event) => {
-        // console.log(event.target.innerHTML)
-        // console.log(score)
         const newTotal = 0
 
         if (quizAnswerIsCorrect) {
@@ -52,6 +48,11 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }
+    
+    function handleExit() {
+        navigate('/');
+    }
+ 
 
     if (remainingGuesses) {
         return (
@@ -65,7 +66,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
                     <li className="quiz-question-option quiz-option3" onClick = {handleClick}>{question.options[2]}</li>
                 </ul>
                 <button onClick = {handleNext}>Next</button>
-                <button>Exit</button>
+                <button onClick = {handleExit}>Exit</button>
 
             <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>
             <BsFillXCircleFill  style={{display: quizAnswerIsCorrect == false ? 'block' : 'none'}}></BsFillXCircleFill>
@@ -87,10 +88,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
                 </button>
             </div>
         )
-
     }
-
-
 }
 
 export default QuizQuestion;
