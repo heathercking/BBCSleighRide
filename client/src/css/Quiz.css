@@ -45,3 +45,14 @@
 .quiz-container {
     min-height: 80vh;
 }
+
+
+.selected-true {
+    background-color: var(--green-dark);
+    color: var(--baby-powder-white);
+}
+
+.selected-false {
+    background-color: var(--red-bbc);
+    color: var(--baby-powder-white);
+}

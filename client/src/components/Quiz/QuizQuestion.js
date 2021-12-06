@@ -17,22 +17,33 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
 
     const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
 
+    // useEffect(() => {
+    //     getRandomOptions(question.options)
+    // }, [])
 
-    useEffect(() => {
-        getRandomOptions(question.options)
-    }, [])
-
-    function getRandomOptions(options) {
-        shuffleArray(options)
-    }
+    // function getRandomOptions(options) {
+    //     shuffleArray(options)
+    // }
 
     const handleClick = (event) => {
+        const selectedElement = event.target;
+        const elsF =document.getElementsByClassName("selected-false");
+        while (elsF[0]) {
+            elsF[0].classList.remove("selected-false")
+        }
+        const elsT =document.getElementsByClassName("selected-true");
+        while (elsT[0]) {
+            elsT[0].classList.remove("selected-true")
+        }
+        
         if (event.target.innerHTML == question.correct) {
             setQuizAnswerIsCorrect(true);
+            selectedElement.classList.add("selected-true");
         } else {
             setQuizAnswerIsCorrect(false);
             setRemainingGuesses(remainingGuesses -1)
             document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
+            selectedElement.classList.add("selected-false");
         }
     }
 
