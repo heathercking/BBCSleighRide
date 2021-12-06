@@ -5,14 +5,23 @@ import Header from "../components/Header";
 import Joke from "../components/Joke";
 import Footer from "../components/Footer";
 import { getQuestions } from "../services/SleighRideService";
+import {useNavigate} from 'react-router-dom';
+import quizCracker from '../images/christmas_cracker.svg';
+import '../styles/BBCSleighRide.css';
 
 
 const BBCSleighRide = () => {
 
-    
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate('/quiz');
+  }
+
+
     return (
         <>
           <p>This is the homepage</p>
+          <img className="cracker" src={quizCracker} alt="Quiz" onClick={handleClick}/>
         {/* <Map/>
         <Quiz/>
         <Joke />
