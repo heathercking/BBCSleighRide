@@ -93,8 +93,8 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
                 </ul>
             </div>
             <div className="quiz-cracker-wrapper">
-                    <img className="quiz-question-nav-crackers" src={cracker_next} alt="Cracker button to symbolise next" onClick = {handleExit}></img>
                     <img className="quiz-question-nav-crackers" src={cracker_exit} alt="Cracker button to symbolise exit" onClick = {handleExit}></img>
+                    <img className="quiz-question-nav-crackers" src={cracker_next} alt="Cracker button to symbolise next" onClick = {handleNext}></img>
                 </div>
             </>
         )

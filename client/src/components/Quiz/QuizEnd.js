@@ -2,15 +2,17 @@ import react from 'react';
 import {useNavigate} from 'react-router-dom';
 import QuizScore from './QuizScore';
 
-const QuizEnd = ({questionsRemaining, replayQuiz, score})  => {
+const QuizEnd = ({questionsRemaining, updateScore, replayQuiz, score})  => {
 
     let navigate = useNavigate();
 
     const handleReplay = () => {
+        updateScore(0, 0, 0);
         replayQuiz()
     }
 
     const handleExit = () => {
+        updateScore(0, 0, 0);
         navigate('/')
     }
     return (

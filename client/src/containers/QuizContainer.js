@@ -92,7 +92,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
             {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
             {readyToPlay ? <div>
             {nodeItems.splice(0, 1)}
-            {questionsRemaining == 0 ? <QuizEnd  score = {score} replayQuiz = {replayQuiz}/> : null}
+            {questionsRemaining == 0 ? <QuizEnd  score = {score} updateScore = {updateScore} replayQuiz = {replayQuiz}/> : null}
             </div>: null}
         </div>
     )

@@ -2,7 +2,7 @@ import react from 'react';
 
 const QuizScore = ({score}) => {
 
-    const percentage = (score.correctQuestions/score.totalQuestions) * 100;
+    const percentage = Math.floor((score.correctQuestions/score.totalQuestions) * 100);
 
     return (
         // <p>hello!</p>
