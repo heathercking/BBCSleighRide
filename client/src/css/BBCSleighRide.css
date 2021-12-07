@@ -1,12 +1,17 @@
 /* setting styles */
 :root {
+
+  /* Colour palette */
   --red-bbc: #9D0A0E;
   --red-christmas: #D20018;
   --green-light: #339900;
   --green-dark: #00863D;
   --baby-powder-white: #FEFFFD;
 
-}
+  /* Font colours */
+
+  --text-alternate: #666666;
+};
 
 * {
   box-sizing: border-box;
