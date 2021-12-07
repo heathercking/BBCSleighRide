@@ -6,7 +6,7 @@ class MessageParser {
 
   parse(message) {
     const lowerCaseMessage = message.toLowerCase()
-    console.log(this.state.messages.length)
+    const that = this;
     if (lowerCaseMessage.includes("hello") || this.state.messages.length == 1) {
       this.actionProvider.greet()
     }
@@ -15,8 +15,12 @@ class MessageParser {
     }
     else if (this.state.messages.length == 5) {
       this.actionProvider.goodChoice(message)
-      this.actionProvider.goodbye1(message)
-      this.actionProvider.goodbye2(message)
+      setTimeout(function() {
+        that.actionProvider.goodbye1(message)
+      }, 1500);
+      setTimeout(function() {
+        that.actionProvider.goodbye2(message)
+      }, 3000);
     }
   }} 
 
