@@ -16,6 +16,7 @@ import '../css/BBCSleighRide.css';
 
 import Snowflakes from "magic-snowflakes";
 import {Helmet} from "react-helmet";
+import JokeContainer from "./JokeContainer";
 
 
 
@@ -31,14 +32,14 @@ const BBCSleighRide = () => {
     navQuiz('/quiz');
   }
 
-  let navJoke = useNavigate();
-  function handleJokeClick() {
-    navJoke('/joke');
-  }
+  // let navJoke = useNavigate();
+  // function handleJokeClick() {
+  //   navJoke('/joke');
+  // }
 
   let navMap = useNavigate();
   function handleMapClick() {
-    navJoke('/map');
+    navMap('/map');
   }
 
 
@@ -74,6 +75,43 @@ const BBCSleighRide = () => {
   const snowStop = () => {
     window.location.reload();
   }
+
+  // let navJoke = useNavigate();
+  // function handleJokeClick() {
+  //   navJoke('/joke');
+  // }
+
+
+  let modal = document.getElementById("jokeModal");
+
+  // Get the button that opens the modal
+  // let btn = document.getElementById("joke-button");
+
+  // Get the <span> element that closes the modal
+  let span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+ const handleJokeClick = () => {
+   modal.style.display = "block";
+ }
+
+  // btn.onclick = function() {
+  //   modal.style.display = "block";
+  // }
+
+  // When the user clicks on <span> (x), close the modal
+  // span.onclick = function() {
+  //   modal.style.display = "none";
+  // }
+
+  // When the user clicks anywhere outside of the modal, close it
+  // window.onclick = function(event) {
+  //   if (event.target === modal) {
+  //     modal.style.display = "none";
+  //   }
+  // }
+
+
 
   // const handleClick = () => {
   //   let snowflakes = new Snowflakes();
@@ -137,7 +175,11 @@ const BBCSleighRide = () => {
               <button onClick="snowflakes.show()">Show</button>  */}
 
 
-              <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+              <img id="joke-button" className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+
+              <JokeContainer />
+
+
               <h2>random?</h2>
             </div>
 
