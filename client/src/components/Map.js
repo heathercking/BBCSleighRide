@@ -9,6 +9,8 @@ import {
 } from "react-simple-maps";
 import useSound from 'use-sound';
 
+import MapModal from "./MapModal";
+
 import "../css/map.css";
 import sleigh from "../assets/images/sleigh_55_33.svg";
 import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
@@ -26,6 +28,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
     const [sleighBells] = useSound(sleighbells);
+    const [openMapModal, setOpenMapModal] = useState(false);
 
     if (!countriesData) {
         return null
@@ -86,6 +89,10 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
 
     return (
         <>
+        <div>
+            <button type="openModalBtn" onClick={() => {setOpenMapModal(true)}}>MODAL</button>
+            {openMapModal && <MapModal setOpenModal={setOpenMapModal}/>}
+        </div>
 
         <div className="map-container">
             <div className="map-filters">
