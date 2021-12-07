@@ -5,9 +5,11 @@
 .quiz-welcome  {
     background-color: var(--baby-powder-white);
     border: 1px solid var(--text-alternate);
-    max-width: 60%;
+    /* max-width: 60%; */
     margin: 4.5em auto 1.5em auto;
-    width: 60%;
+    padding-right: .5em;
+    width: 60vw;
+    height: fit-content;
     padding: 1em;
     padding-top: 2em;
     border-radius: 5%;
@@ -26,11 +28,12 @@
 
 .quiz-welcome p {
     line-height: 2.25em;
-    font-size: 0.75em;
+    font-size: 1.25em;
     margin-left: 5px;
 }
 
 .quiz-welcome-start-instructions {
+    margin: 0 auto !important;
     color: var(--text-alternate);
 }
 
@@ -47,9 +50,10 @@
 /* Quiz welcome svg images */
 
 .quiz-start-svg {
-    height: 30%;
-    width: 30%;
-    margin-left: 5px;
+    height: 250px;
+    width: 250px;
+    margin-left: 20px;
+    padding-bottom: 1.5em;
     cursor: pointer;
     transition-property: all;
     transition: .4s ease-in;
@@ -63,9 +67,10 @@
 }
 
 .quiz-welcome-elf {
-    height: 40%;
-    width: 40%;
+    height: 25vh;
+    width: 25vh;
     margin-left: auto;
+    margin-right: 5vw;
     margin-top: 1.2em;
 }
 
@@ -73,17 +78,18 @@
 /* Quiz questions */
 
 .quiz-question {
-    margin: 3.5em auto;
+    margin: 0 auto 0 auto;
     width: max(600px, 50vw);
-    padding: 1.5em;
+    padding: 1.5em 1.5em  0.5em 1.5em;
     background-color: var(--baby-powder-white);
     border: 1px solid var(--text-alternate);
+    font-size: 1.25em;
     border-radius: 45px;
     box-shadow: 2px 2px 9px var(--text-alternate);
 }
 
 .quiz-question h4 {
-    margin-top: 2.25em;
+    margin-top: 1.25em;
     text-align: center;
     font-size: 1.2rem;
 }
@@ -91,12 +97,12 @@
 /* Quiz question potential answers */
 
 .quiz-question-options-list {
-    padding-top: 1.5em;
+    padding-bottom: 0 !important;
 }
 
 .quiz-question-option {
     width: 55%;
-    padding: 0.45em 1.25em .45em 1.25em;
+    padding: 0.45em 1.25em .75em 0;
     list-style: none;
     border-radius: 20px;
     cursor: pointer;
@@ -108,9 +114,11 @@
 /* Candy canes svg images */
 
 .candy-canes {
-    margin-top: 7.5vh;
+    margin-top: 2.5vh;
+    margin-bottom: 1.25vh;
     margin-left: 57.5vw;
     position: sticky;
+    object-fit: cover;
 }
 
 .candy-cane-quiz-lives {
@@ -126,7 +134,7 @@
 }
 
 .quiz-presents {
-    padding-top: 2em;
+    /* padding-top: 2em; */
     margin: 0 auto;
     width: fit-content;
 }
@@ -148,9 +156,10 @@
 }
 
 .quiz-question-nav-crackers {
-    height: 20%;
-    width: 20%;
-    margin-bottom: 1.5em;
+    height: 250px;
+    width: 250px;
+    /* margin: 1.5em 0; */
+    margin-top: -2em;
     cursor: pointer;
     transition-property: all;
     transition: .4s ease-in;
@@ -240,7 +249,9 @@
 }
 
 .end-of-quiz p {
+    max-width: 80%;
     margin-left: .75em;
+    font-size: 1.25em !important;
     line-height: 1.5em;
 }
 
@@ -250,14 +261,15 @@
 
 .quiz-end-cracker-container {
     display: flex;
-    width: 60%;
+    width: 100%;
     justify-content: space-around;
 }
 
 
 .quiz-end-cracker {
-    height: 40%;
-    width: 40%;
+    margin-top: -2.5em;
+    height: 250px;
+    width: 250px;
     transform: rotate(5deg);
     transition-property: all;
     transition-duration: .75s;
@@ -273,6 +285,7 @@
 /* Quiz failure screen */
 
 .lose-screen {
+    margin-top: 4.5em !important;
     display: flex;
     width: 60%;
     margin: 0 auto;
@@ -289,8 +302,17 @@
     height: 100%;
 }
 
+/* Svgs for losing screen */
+
 .quiz-sad-elf {
+    margin-top: 2.5em !important;
     margin-left: 2.5em;
+    height: 50%;
+    width: 50%;
+}
+
+.quiz-question-lose-crackers {
+    margin-left: 1.5em;
     height: 50%;
     width: 50%;
 }
