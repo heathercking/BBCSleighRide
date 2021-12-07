@@ -13,7 +13,8 @@ import "../css/map.css";
 import sleigh from "../assets/images/sleigh_55_33.svg";
 import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
 import hohoho from "../assets/sounds/hohoho.mp3";
-import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3"
+import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3";
+import sleighbells from "../assets/sounds/sleigh-bells.wav";
 
 
 
@@ -24,6 +25,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
+    const [sleighBells] = useSound(sleighbells);
 
     if (!countriesData) {
         return null
@@ -92,7 +94,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                 <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
             </div>
 
-            <div className="card">
+            <div className="card" onMouseEnter={sleighBells}>
                 <div className="controls">
                     <button onClick={handleZoomIn}>
                     <svg
