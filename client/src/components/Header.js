@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo_star.svg';
+import santa from '../assets/images/santa_happy.svg';
 import '../css/Header.css';
 
 function Header() {
@@ -17,7 +18,7 @@ function Header() {
         <nav className="options">
           <ul>
             <div className="link">Blog</div>
-            <div className="link">Santa</div>
+            <img className ="santa-happy" src={santa} alt="Logo"/>
           </ul>
         </nav>
       </div>
