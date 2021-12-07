@@ -1,4 +1,5 @@
 import './App.css';
+import react, {useState} from 'react';
 import BBCSleighRide from './containers/BBCSleighRide';
 import {
   BrowserRouter as Router,
@@ -12,13 +13,36 @@ import JokeContainer from './containers/JokeContainer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
+import Chatbot from 'react-chatbot-kit';
+import './css/Santa.css';
+import config from './components/chatbot/config';
+import MessageParser from './components/chatbot/MessageParser';
+import ActionProvider from './components/chatbot/ActionProvider';
+
+
+
+
 
 function App() {
-  return (
 
+  const [santaToggle, setSantaToggle] = useState(false)
+
+  const showSanta = () => {
+    console.log("hello")
+    if (!santaToggle) {
+      setSantaToggle(true)
+    } else {
+      setSantaToggle(false)
+    }
+  }
+
+
+  return (
     <Router>
 
-      <Header />
+      <Header showSanta = {showSanta}/>
+
+        {santaToggle ? <Chatbot config = {config} messageParser = {MessageParser} actionProvider = {ActionProvider} placeholderText="Message here"/> : null}
 
           <Routes>
             <Route path="/" element={<BBCSleighRide />} />
@@ -32,6 +56,7 @@ function App() {
 
 
     </Router>
+     
   );
 }
 
