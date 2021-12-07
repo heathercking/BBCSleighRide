@@ -10,7 +10,7 @@ import { getQuestions } from "../services/SleighRideService";
 import {useNavigate} from 'react-router-dom';
 import quizCracker from '../assets/images/christmas_cracker_quiz.svg';
 import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
-import mapCracker from '../assets/images/christmas_cracker.svg';
+import mapCracker from '../assets/images/christmas_cracker_map.svg';
 import '../css/BBCSleighRide.css';
 
 
@@ -51,17 +51,17 @@ const BBCSleighRide = () => {
             <div>
               <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
             </div>
-          </div> 
+          </div>
             <div className="fun-grid">
               <h2>let it snow</h2>
               <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
               <h2>random?</h2>
             </div>
-             
+
         </div>
 
-         
-        
+
+
         {/* <Quiz questions = {questions} score = {score} remainingGuesses = {remainingGuesses} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore}/> */}
         {/* <Joke /> */}
         {/* <Footer /> */}
