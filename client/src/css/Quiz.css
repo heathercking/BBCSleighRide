@@ -83,22 +83,29 @@
 }
 
 .quiz-question h4 {
-    margin-top: 1.75em;
+    margin-top: 2.25em;
     text-align: center;
     font-size: 1.2rem;
 }
 
 /* Quiz question potential answers */
 
+.quiz-question-options-list {
+    padding-top: 1.5em;
+}
+
 .quiz-question-option {
     width: 55%;
-    padding: .45em 0 .45em 1.25em;
+    padding: 0.45em 1.25em .45em 1.25em;
     list-style: none;
     border-radius: 20px;
     cursor: pointer;
 }
 
 /* SVG images */
+
+
+/* Candy canes svg images */
 
 .candy-canes {
     margin-top: 7.5vh;
@@ -109,6 +116,29 @@
 .candy-cane-quiz-lives {
   height: 50px;
   width: 50px;
+}
+
+/* Presents quiz tally images */
+
+.presents-correct-tally {
+    height: 75px;
+    width: 75px;
+}
+
+.quiz-presents {
+    padding-top: 2em;
+    margin: 0 auto;
+    width: fit-content;
+}
+.quiz-presents * {
+    padding-right: 1em;
+}
+
+.quiz-correct-answers {
+    font-style: italic;
+    color: var(--text-alternate);
+    font-weight: light;
+    font-size: .95em;
 }
 
 .quiz-cracker-wrapper {
@@ -195,10 +225,72 @@
 
 .end-of-quiz {
     width: 60%;
+    margin: 0 auto 2.5em auto;
+    margin-top: 1.5em;
+    border: 1px solid var(--text-alternate);
+    padding: 1em;
+    border-radius: 45px;
+    box-shadow: 2px 2px 9px var(--text-alternate);
+}
+
+.end-of-quiz h2 {
+    padding-top: 1.5em;
+    margin-left: 0.75rem;
+    font-size: 1.7em;
+}
+
+.end-of-quiz p {
+    margin-left: .75em;
+    line-height: 1.5em;
+}
+
+
+
+/* Quiz end Svgs */
+
+.quiz-end-cracker-container {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+}
+
+
+.quiz-end-cracker {
+    height: 40%;
+    width: 40%;
+    transform: rotate(5deg);
+    transition-property: all;
+    transition-duration: .75s;
+}
+
+.quiz-end-cracker:hover {
+  cursor: pointer;
+  transform: rotate(5deg);
+  transform: scale(1.25);
+}
+
+
+/* Quiz failure screen */
+
+.lose-screen {
+    display: flex;
+    width: 60%;
     margin: 0 auto;
     margin-top: 1.5em;
     border: 1px solid var(--text-alternate);
     padding: 1em;
     border-radius: 45px;
     box-shadow: 2px 2px 9px var(--text-alternate);
+}
+
+.sad-elf-wrapper {
+    margin-left: auto;
+    width: 50%;
+    height: 100%;
+}
+
+.quiz-sad-elf {
+    margin-left: 2.5em;
+    height: 50%;
+    width: 50%;
 }

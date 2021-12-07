@@ -22,6 +22,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     // const [remainingGuesses, setRemainingGuesses] = useState(5);
 
     const questionsRemaining = questions.length;
+    
 
     useEffect(() => {
         getQuestions()
@@ -80,6 +81,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const replayQuiz = () => {
         setReadyToPlay(false)
+        setCorrectQuestions(0)
         getQuestions()
         .then(data => {
             setQuestions(data)
