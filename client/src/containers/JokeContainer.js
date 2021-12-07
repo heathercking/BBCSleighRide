@@ -4,7 +4,8 @@ import { getJokes } from '../services/SleighRideService';
 import '../css/JokeContainer.css'
 import cracker_exit from '../assets/images/christmas_cracker_exit.svg';
 
-const JokeContainer = ({joke}) => {
+const JokeContainer = ({setOpenModal}) => {
+
     const [jokes,setJokes] = useState([]);
     const [randomJoke, setRandomJoke] = useState(null);
     const [toggleJoke, setToggleJoke] = useState(false);
@@ -58,7 +59,9 @@ const nodeItems = shuffledJokes.map(joke => {
                   <button onClick={handleClick}>HoHoHo</button>
               </div>
               <div className="modal-footer">
-                <img src={cracker_exit} alt="Exit" className="button" />
+                <img src={cracker_exit} alt="Exit" className="exit-button" onClick={() => {
+              setOpenModal(false);
+            }}/>
               </div>
             </div>
           </div>

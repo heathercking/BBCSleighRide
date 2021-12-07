@@ -11,24 +11,40 @@
   justify-content: center;
 }
 
-.joke-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+.modal-content {
+  background-color: #FEFFFD;
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
+  border-radius: 10px;
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.modal-header, .modal-footer {
+  padding: 10px;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+
+.exit-button {
+  height: 250px;
+  width: 250px;
+  transform: rotate(5deg);
+  transition-property: all;
+  transition-duration: .75s;
+}
+
+.exit-button:hover {
+cursor: pointer;
+transform: rotate(5deg);
+transform: scale(1.25);
 }

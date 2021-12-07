@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
-import JokeContainer from './containers/JokeContainer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
@@ -24,7 +23,6 @@ function App() {
             <Route path="/" element={<BBCSleighRide />} />
             <Route path="/map" element={<MapContainer />} />
             <Route path="/quiz" element={<QuizContainer />} />
-            <Route path="/joke" element={<JokeContainer />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
 
