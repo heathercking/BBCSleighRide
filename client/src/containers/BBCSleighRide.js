@@ -22,10 +22,8 @@ import {Helmet} from "react-helmet";
 const BBCSleighRide = () => {
 
   const [snowflakes, setSnowflakes] = useState(null);
-  const snowflakesRef = useRef(snowflakes)
-
+  const snowflakesRef = useRef(snowflakes);
   snowflakesRef.current = snowflakes;
-
 
 
   let navQuiz = useNavigate();
@@ -42,8 +40,6 @@ const BBCSleighRide = () => {
   function handleMapClick() {
     navJoke('/map');
   }
-
-
 
 
   const snowStart = () => {
@@ -64,91 +60,39 @@ const BBCSleighRide = () => {
         zIndex: 100 // Default: 9999
     }
     );
-    // window.setTimeout(reload(), 30000);
-    // snowflakes.start();
-    // snowflakes.destroy();
   }
 
-  // const reload = () => {
-  //   window.location.reload();
-  // }
-
   const snowStop = () => {
-    snowflakesRef.current.stop();
+    snowflakesRef.current.destroy();
   }
 
   const handleClick = () => {
     let snowflakes = new Snowflakes()
     setSnowflakes(snowflakes)
-    setTimeout(snowStop, 10000)
-
-    // if (!isSnowing) {
-    //   snowflakes.start()
-    //   setIsSnowing(true);
-    // } else {
-    //   snowflakes.destroy()
-    //   setIsSnowing(false);
-    // }
+    setTimeout(snowStop, 10000);
   }
-
-
-
-  // const stopSnow = () => {
-  //   const snowflakes = new Snowflakes();
-  //   snowflakes.stop();
-  // }
-
-  // const startSnow = () => {
-  //   if (snowTimer === true) {
-  //     const snowflakes = new Snowflakes();
-  //   };
-  // }
-
-
-  // const stopSnowflakes = () => {
-  //   new Snowflakes().stop();
-  // }
-
-
 
 
     return (
         <section className="background">
-        <div className="main-section">
-          <div className="countdown">
-            <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
+          <div className="main-section">
+            <div className="countdown">
+              <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
+            </div>
+            <div className="learning-grid">
+              <div>
+                <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
+              </div>
+              <div>
+                <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
+              </div>
+            </div>
+              <div className="fun-grid">
+                <button onClick={handleClick}>START</button>
+                <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+                <h2>random?</h2>
+              </div>
           </div>
-          <div className="learning-grid">
-            <div>
-              <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
-            </div>
-            <div>
-              <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
-            </div>
-          </div>
-            <div className="fun-grid">
-
-              <button onClick={handleClick}>START</button>
-              <button onClick={snowStop}>STOP</button>
-
-{/*
-              <Helmet>
-              <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
-              <script>var snowflakes = new Snowflakes();</script>
-              </Helmet> */}
-
-              {/* <button onClick="snowflakes.stop()">Stop</button>
-              <button onClick="snowflakes.start()">Start</button>
-              <button onClick="snowflakes.hide()">Hide</button>
-              <button onClick="snowflakes.show()">Show</button>  */}
-
-
-              <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
-              <h2>random?</h2>
-            </div>
-
-        </div>
-
         </section>
     )
 }
