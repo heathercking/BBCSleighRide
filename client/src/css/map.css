@@ -1,0 +1,114 @@
+
+
+html {
+    font-family: system-ui, sans-serif;
+    font-size: 1.25rem;
+  }
+
+body {
+    margin: 0;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+
+
+h1 {
+    margin: 0;
+}
+
+.card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 3px;
+    margin: 10px;
+}
+
+.map-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    /* cursor: pointer; */
+    cursor: url('../assets/images/sleigh_55_33.svg') 6 6 , auto;
+}
+
+
+
+.map-filters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0 10px;
+    cursor: url('../assets/images/sleigh_55_33.svg') 6 6, auto;
+}
+
+.map-filter-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 4px #D20018 solid;
+    background-color: #FEFFFD;
+    color: #00863D;
+    font-weight: bold;
+}
+
+.map-filter-btn:hover {
+    /* cursor: pointer; */
+    cursor: url('../assets/images/sleigh_55_33.svg') 6 6, auto;
+    transform: scale(1.10);
+    /* transform: translateY(-5px); */
+    background-color: #00863D;
+    color: #FEFFFD;
+}
+
+.map-filter-btn:focus {
+    background-color: #00863D;
+    color: #FEFFFD;
+}
+
+
+
+/* ZOOM CONTROLS */
+svg {
+    /* display: inline-block; */
+    vertical-align: middle;
+  }
+
+  .controls {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    right: 5%;
+    margin: 15px 0;
+    transform: translateX(-50%);
+  }
+
+  .controls > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
+    background: #D20018;
+    color: #FEFFFD;
+    border-radius: 100%;
+    border: 0;
+  }
+
+  .controls > button:first-child {
+    margin-right: 0.25rem;
+  }
+
+
