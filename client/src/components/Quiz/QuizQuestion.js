@@ -7,9 +7,10 @@ import QuizTally from './QuizTally'
 import candy_cane from '../../assets/images/candy_cane.svg';
 import cracker_next from '../../assets/images/christmas_cracker_next.svg';
 import cracker_exit from '../../assets/images/christmas_cracker_exit.svg';
+import present from '../../assets/images/present.svg';
 
 
-const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuizQuestion, replayQuiz, updateScore, shuffleArray, onAnswerCheck}) => {
+const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQuestions, removeQuizQuestion, replayQuiz, updateScore, shuffleArray, onAnswerCheck, questionsRemaining}) => {
 
 
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
@@ -18,6 +19,7 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     let navigate = useNavigate();
 
     const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
+    const presents = [...Array(correctQuestions)].map((e, i) => <img src={present} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
 
     // useEffect(() => {
     //     getRandomOptions(question.options)
@@ -57,10 +59,13 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
         removeSelectedAnswer()
         if (quizAnswerIsCorrect) {
             updateScore(score.correctQuestions + 1, score.incorrectQuestions, score.totalQuestions + 1)
+            addCorrectQuestions()
+        } else if (quizAnswerIsCorrect == null) {
+            setRemainingGuesses(remainingGuesses -1);
+            document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
         } else {
             updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
         }
-
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }
@@ -77,9 +82,17 @@ const QuizQuestion = ({questions, question, score, answeredQuestions, removeQuiz
     if (remainingGuesses) {
         return (
             <>
-            <div className="candy-canes">
-                {candyCanes}
+            <div className="quiz-tally-wrapper">
+                <div className="candy-canes">
+                    {candyCanes}
+                </div>
+                <div className="quiz-presents">
+                    {presents}
+                    <h4>Questions correct</h4>
+                    <span className = "quiz-correct-answers"></span>
+                </div>
             </div>
+            
             <div className="quiz-question">
                 {/* <BsFillCheckCircleFill  style={{display: quizAnswerIsCorrect ? 'block' : 'none'}}></BsFillCheckCircleFill>
                 <BsFillXCircleFill  style={{display: quizAnswerIsCorrect == false ? 'block' : 'none'}}></BsFillXCircleFill> */}

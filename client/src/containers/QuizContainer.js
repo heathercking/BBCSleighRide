@@ -12,6 +12,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const [questions, setQuestions] = useState([]);
     const [readyToPlay, setReadyToPlay] = useState(false)
+    const [correctQuestions, setCorrectQuestions] = useState(0);
     var [score, setScore] = useState({
                                                 correctQuestions: 0,
                                                 incorrectQuestions: 0,
@@ -29,6 +30,10 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         })
     }, [])
 
+
+    const addCorrectQuestions = () => {
+        setCorrectQuestions(correctQuestions +1)
+    }
 
     const updateScore = (correct, incorrect, total) => {
         setScore((previousObjectState) => {
@@ -83,7 +88,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck} correctQuestions = {correctQuestions} addCorrectQuestions = {addCorrectQuestions}/>
         )
     })
     return (
