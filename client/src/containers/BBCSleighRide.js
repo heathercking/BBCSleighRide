@@ -16,6 +16,7 @@ import '../css/BBCSleighRide.css';
 
 import Snowflakes from "magic-snowflakes";
 import {Helmet} from "react-helmet";
+import JokeContainer from "./JokeContainer";
 
 
 
@@ -23,7 +24,7 @@ const BBCSleighRide = () => {
 
   const [isSnowing, setIsSnowing] = useState(false)
 
-
+  const [modalOpen, setModalOpen] = useState(false);
 
 
   let navQuiz = useNavigate();
@@ -31,14 +32,9 @@ const BBCSleighRide = () => {
     navQuiz('/quiz');
   }
 
-  let navJoke = useNavigate();
-  function handleJokeClick() {
-    navJoke('/joke');
-  }
-
   let navMap = useNavigate();
   function handleMapClick() {
-    navJoke('/map');
+    navMap('/map');
   }
 
 
@@ -137,7 +133,11 @@ const BBCSleighRide = () => {
               <button onClick="snowflakes.show()">Show</button>  */}
 
 
-              <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
+              <img id="joke-button" className="cracker-joke" src={jokeCracker} alt="Joke" onClick={() => {setModalOpen(true);
+        }}/>
+
+              {modalOpen && <JokeContainer setOpenModal={setModalOpen} />}
+
               <h2>random?</h2>
             </div>
 
