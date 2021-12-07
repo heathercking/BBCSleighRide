@@ -1,4 +1,4 @@
-import React, {useState, memo} from "react";
+import React, {useState, memo, useEffect} from "react";
 import { ReactDOM } from "react";
 import {
     ComposableMap,
@@ -17,7 +17,10 @@ import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
 import hohoho from "../assets/sounds/hohoho.mp3";
 import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3";
 import sleighbells from "../assets/sounds/sleigh-bells.wav";
-
+import baubleGreetings from "../assets/images/bauble_greetings.svg"
+import baubleDates from "../assets/images/bauble_dates.svg"
+import baubleFoods from "../assets/images/bauble_foods.svg"
+import cracker from "../assets/images/christmas_cracker_next.svg"
 
 
 
@@ -30,9 +33,21 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
     const [sleighBells] = useSound(sleighbells);
     const [openMapModal, setOpenMapModal] = useState(false);
 
+    useEffect( () => {
+        componentDidMount();
+    })
+
     if (!countriesData) {
         return null
       }
+
+    const componentDidMount = () => {
+        window.addEventListener('load', setModal)
+    }
+
+    const setModal = () => {
+        setOpenMapModal(true);
+    }
 
 
     //FOR WHEN FILTER BUTTONS ARE SELECTED
@@ -96,9 +111,12 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
 
         <div className="map-container">
             <div className="map-filters">
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
+                {/* <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting"><img src={cracker} className="bauble"/></button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated"><img src={cracker} className="bauble"/></button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal"><img src={cracker} className="bauble"/></button> */}
+                <input className="map-cracker" type="image" src={cracker} alt="greeting" name="filter" value="greeting" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={cracker} alt="dates" name="filter" value="celebrated" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={cracker} alt="foods" name="filter" value="meal" onClick={handleChange}/>
             </div>
 
             <div className="card" onMouseEnter={sleighBells}>

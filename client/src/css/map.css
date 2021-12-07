@@ -32,7 +32,7 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     padding: 3px;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
 }
 
 .map-container {
@@ -48,18 +48,21 @@ h1 {
 .map-filters {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 20px 0 10px;
+    gap: 20px;
+    padding: 0;
     cursor: url('../assets/images/sleigh_55_33.svg') 6 6, auto;
+    overflow: visible;
+    height: 100px;
 }
 
 .map-filter-btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 4px #D20018 solid;
-    background-color: #FEFFFD;
-    color: #00863D;
-    font-weight: bold;
+    /* padding: 10px 20px; */
+    /* border-radius: 10px; */
+    /* border: 4px #D20018 solid; */
+    background-color: transparent;
+    border: transparent;
+    /* color: #00863D;
+    font-weight: bold; */
 }
 
 .map-filter-btn:hover {
@@ -67,13 +70,19 @@ h1 {
     cursor: url('../assets/images/sleigh_55_33.svg') 6 6, auto;
     transform: scale(1.10);
     /* transform: translateY(-5px); */
-    background-color: #00863D;
+    /* border-radius: 100%; */
+    /* background-color: #00863D; */
     color: #FEFFFD;
 }
 
 .map-filter-btn:focus {
     background-color: #00863D;
     color: #FEFFFD;
+}
+
+.map-cracker {
+    width: 210px;
+    transform: rotate(-5deg);
 }
 
 
