@@ -1,4 +1,3 @@
-// ActionProvider starter code
 class ActionProvider {
    constructor(
     createChatBotMessage,
@@ -37,7 +36,6 @@ class ActionProvider {
     const message = this.createChatBotMessage(`Don't forget to leave me a mince pie and Rudolph a carrot when we come to give you your presents!`);
     this.updateChatbotState(message);
   }
-  
   
   updateChatbotState(message) {
    this.setState(prevState => ({

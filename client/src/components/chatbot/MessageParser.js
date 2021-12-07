@@ -1,4 +1,3 @@
-// MessageParser starter code
 class MessageParser {
   constructor(actionProvider, state) {
     this.actionProvider = actionProvider;
@@ -19,13 +18,7 @@ class MessageParser {
       this.actionProvider.goodbye1(message)
       this.actionProvider.goodbye2(message)
     }
-  }}  
-
-  // parse(message) {
-  //   const lowerCaseMessage2 = message.toLowerCase()
-  //     this.actionProvider.nice(lowerCaseMessage)
-  // }
-    
+  }} 
 
 
 export default MessageParser;
