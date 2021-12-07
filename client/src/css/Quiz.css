@@ -182,4 +182,23 @@
     font-size: 20px;
     margin-right: 1.25em;
 }
-/*Test commit  */
+
+
+/* Quiz end*/
+
+
+/* Quiz end FLex container for columns */
+
+.quiz-score-container {
+    display: flex;
+}
+
+.end-of-quiz {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 1.5em;
+    border: 1px solid var(--text-alternate);
+    padding: 1em;
+    border-radius: 45px;
+    box-shadow: 2px 2px 9px var(--text-alternate);
+}
