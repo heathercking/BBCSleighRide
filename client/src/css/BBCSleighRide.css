@@ -143,3 +143,17 @@ h2 {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 } */
+
+.background {
+  /* min-height: 100vh; */
+  height: 800px;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.0), rgba(4,9,30,0.0)), url(../assets/images/green_background_narrow.svg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -10,7 +10,8 @@ import { getQuestions } from "../services/SleighRideService";
 import {useNavigate} from 'react-router-dom';
 import quizCracker from '../assets/images/christmas_cracker_quiz.svg';
 import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
-import mapCracker from '../assets/images/christmas_cracker.svg';
+import mapCracker from '../assets/images/christmas_cracker_map.svg';
+import countdownTitle from '../assets/images/christmas_countdown.svg';
 import '../css/BBCSleighRide.css';
 
 import Snowflakes from "magic-snowflakes";
@@ -24,7 +25,7 @@ const BBCSleighRide = () => {
 
 
 
-  
+
   let navQuiz = useNavigate();
   function handleQuizClick() {
     navQuiz('/quiz');
@@ -41,12 +42,12 @@ const BBCSleighRide = () => {
   }
 
 
-  
+
 
   const snowStart = () => {
     let snowflakes = new Snowflakes(
       {
-        color: '#f00', // Default: "#5ECDEF"
+        color: '#FEFFFD', // Default: "#5ECDEF"
         // container: document.querySelector('#snowflakes-container'), // Default: document.body
         count: 100, // 100 snowflakes. Default: 50
         minOpacity: 0.1, // From 0 to 1. Default: 0.6
@@ -57,7 +58,7 @@ const BBCSleighRide = () => {
         speed: 2, // The property affects the speed of falling. Default: 1
         wind: false, // Without wind. Default: true
         width: 500, // Default: width of container
-        height: 600, // Default: height of container
+        // height: 80%, // Default: height of container
         zIndex: 100 // Default: 9999
     }
     );
@@ -102,14 +103,14 @@ const BBCSleighRide = () => {
   //   new Snowflakes().stop();
   // }
 
- 
+
 
 
     return (
-        <>
+        <section className="background">
         <div className="main-section">
           <div className="countdown">
-            <h1>Coundown to Christmas....</h1>
+            <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
           </div>
           <div className="learning-grid">
             <div>
@@ -118,31 +119,31 @@ const BBCSleighRide = () => {
             <div>
               <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
             </div>
-          </div> 
+          </div>
             <div className="fun-grid">
 
               <button onClick={snowStart}>START</button>
               <button onClick={snowStop}>START</button>
 
-{/* 
+{/*
               <Helmet>
               <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
               <script>var snowflakes = new Snowflakes();</script>
               </Helmet> */}
-              
+
               {/* <button onClick="snowflakes.stop()">Stop</button>
               <button onClick="snowflakes.start()">Start</button>
               <button onClick="snowflakes.hide()">Hide</button>
               <button onClick="snowflakes.show()">Show</button>  */}
 
-              
-              {/* <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/> */}
+
+              <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
               <h2>random?</h2>
             </div>
-             
+
         </div>
 
-        </>
+        </section>
     )
 }
 
