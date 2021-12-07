@@ -12,6 +12,8 @@ import quizCracker from '../assets/images/christmas_cracker_quiz.svg';
 import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
 import mapCracker from '../assets/images/christmas_cracker_map.svg';
 import countdownTitle from '../assets/images/christmas_countdown.svg';
+import snowflake from '../assets/images/snowflake_3.svg';
+import present from '../assets/images/present.svg';
 import '../css/BBCSleighRide.css';
 
 import Snowflakes from "magic-snowflakes";
@@ -41,35 +43,28 @@ const BBCSleighRide = () => {
     navJoke('/map');
   }
 
-
-  const snowStart = () => {
-    let snowflakes = new Snowflakes(
-      {
-        color: '#FEFFFD', // Default: "#5ECDEF"
-        // container: document.querySelector('#snowflakes-container'), // Default: document.body
-        count: 100, // 100 snowflakes. Default: 50
-        minOpacity: 0.1, // From 0 to 1. Default: 0.6
-        maxOpacity: 0.95, // From 0 to 1. Default: 1
-        minSize: 20, // Default: 10
-        maxSize: 50, // Default: 25
-        rotation: true, // Default: true
-        speed: 2, // The property affects the speed of falling. Default: 1
-        wind: false, // Without wind. Default: true
-        width: 500, // Default: width of container
-        // height: 80%, // Default: height of container
-        zIndex: 100 // Default: 9999
-    }
-    );
-  }
-
   const snowStop = () => {
     snowflakesRef.current.destroy();
   }
 
-  const handleClick = () => {
-    let snowflakes = new Snowflakes()
+  const snowStart = () => {
+    let snowflakes = new Snowflakes({
+        color: '#FEFFFD', // Default: "#5ECDEF"
+        // container: document.querySelector('#snowflakes-container'), // Default: document.body
+        count: 150, // 100 snowflakes. Default: 50
+        minOpacity: 0.3, // From 0 to 1. Default: 0.6
+        maxOpacity: 1, // From 0 to 1. Default: 1
+        minSize: 40, // Default: 10
+        maxSize: 80, // Default: 25
+        rotation: true, // Default: true
+        speed: 2, // The property affects the speed of falling. Default: 1
+        wind: true, // Without wind. Default: true
+        width: 500, // Default: width of container
+        // height: 80%, // Default: height of container
+        zIndex: 100 // Default: 9999
+    })
     setSnowflakes(snowflakes)
-    setTimeout(snowStop, 10000);
+    setTimeout(snowStop, 30000);
   }
 
 
@@ -88,9 +83,10 @@ const BBCSleighRide = () => {
               </div>
             </div>
               <div className="fun-grid">
-                <button onClick={handleClick}>START</button>
+                {/* <button >START</button> */}
+                <img className="snowflake" src={snowflake} alt="Snowflake" onClick={snowStart}/>
                 <img className="cracker-joke" src={jokeCracker} alt="Joke" onClick={handleJokeClick}/>
-                <h2>random?</h2>
+                <img className="present" src={present} alt="Present" />
               </div>
           </div>
         </section>
