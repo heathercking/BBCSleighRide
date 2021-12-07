@@ -1,7 +1,7 @@
 import react from 'react';
 import {useNavigate} from 'react-router-dom';
 import QuizScore from './QuizScore';
-import quizElf from '../../assets/images/elf_placeholder.svg';
+import quizElf from '../../assets/images/elf_happy.svg';
 import replayCracker from '../../assets/images/christmas_cracker_next.svg';
 import exitCracker from '../../assets/images/christmas_cracker_exit.svg';
 

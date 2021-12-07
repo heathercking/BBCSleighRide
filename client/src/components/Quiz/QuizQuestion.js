@@ -9,7 +9,7 @@ import cracker_next from '../../assets/images/christmas_cracker_next.svg';
 import cracker_exit from '../../assets/images/christmas_cracker_exit.svg';
 import present from '../../assets/images/present.svg';
 import cracker_replay from '../../assets/images/christmas_cracker_replay.svg';
-import quizElf from '../../assets/images/elf_placeholder.svg';
+import quizElf from '../../assets/images/elf_sad.svg';
 
 
 const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQuestions, removeQuizQuestion, replayQuiz, updateScore, shuffleArray, onAnswerCheck, questionsRemaining}) => {
@@ -124,7 +124,7 @@ const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQ
                     <p>
                         Click the cracker below to get more!
                     </p>
-                    <img className="quiz-question-nav-crackers" src={cracker_replay} alt="Cracker button to symbolise replay" onClick = {handleReplay}></img>
+                    <img className="quiz-question-lose-crackers" src={cracker_replay} alt="Cracker button to symbolise replay" onClick = {handleReplay}></img>
                 </div>
                 <div className="sad-elf-wrapper">
                     <img className="quiz-sad-elf" src={quizElf} alt="Christmas elf for lose screen"/>
