@@ -12,6 +12,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const [questions, setQuestions] = useState([]);
     const [readyToPlay, setReadyToPlay] = useState(false)
+    const [correctQuestions, setCorrectQuestions] = useState(0);
     var [score, setScore] = useState({
                                                 correctQuestions: 0,
                                                 incorrectQuestions: 0,
@@ -21,6 +22,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     // const [remainingGuesses, setRemainingGuesses] = useState(5);
 
     const questionsRemaining = questions.length;
+    
 
     useEffect(() => {
         getQuestions()
@@ -29,6 +31,10 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         })
     }, [])
 
+
+    const addCorrectQuestions = () => {
+        setCorrectQuestions(correctQuestions +1)
+    }
 
     const updateScore = (correct, incorrect, total) => {
         setScore((previousObjectState) => {
@@ -75,6 +81,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const replayQuiz = () => {
         setReadyToPlay(false)
+        setCorrectQuestions(0)
         getQuestions()
         .then(data => {
             setQuestions(data)
@@ -83,7 +90,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
 
     const nodeItems = shuffledQuestions.map(question => {
         return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck}/>
+            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck} correctQuestions = {correctQuestions} addCorrectQuestions = {addCorrectQuestions}/>
         )
     })
     return (
@@ -92,7 +99,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
             {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
             {readyToPlay ? <div>
             {nodeItems.splice(0, 1)}
-            {questionsRemaining == 0 ? <QuizEnd  score = {score} replayQuiz = {replayQuiz}/> : null}
+            {questionsRemaining == 0 ? <QuizEnd  score = {score} updateScore = {updateScore} replayQuiz = {replayQuiz}/> : null}
             </div>: null}
         </div>
     )
