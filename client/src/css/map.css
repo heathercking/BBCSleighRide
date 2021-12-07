@@ -36,7 +36,7 @@ h1 {
 }
 
 .map-container {
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
     text-align: center;
     /* cursor: pointer; */
@@ -89,7 +89,7 @@ svg {
     text-align: center;
     justify-content: center;
     position: absolute;
-    right: 5%;
+    right: 6%;
     margin: 15px 0;
     transform: translateX(-50%);
   }

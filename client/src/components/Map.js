@@ -21,7 +21,7 @@ import sleighbells from "../assets/sounds/sleigh-bells.wav";
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-    const [position, setPosition] = useState({ coordinates: [10, 8], zoom: 1.15 });
+    const [position, setPosition] = useState({ coordinates: [10, 9], zoom: 1.1 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
@@ -122,7 +122,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                     </svg>
                     </button>
                 </div>
-                <ComposableMap data-tip="" width={750} height={400} projectionConfig={{ scale: 160 }} onBlur>
+                <ComposableMap data-tip="" width={670} height={320} projectionConfig={{ scale: 140 }} onBlur>
                     <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                         <Geographies geography={geoUrl}>
                             {({geographies}) => geographies.map(geo =>
@@ -155,9 +155,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 //     <b>Traditional Meal:</b> ${tooltipMeal}
                                                 //     `)
                                             }
-                                            else {
-                                                setTooltipContent(`${NAME}`)
-                                            }
+                                            // else {
+                                            //     setTooltipContent(`${NAME}`)
+                                            // }
                                         }}
                                         onMouseLeave={() => {
                                             setTooltipContent("");
