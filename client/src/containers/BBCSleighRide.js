@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 
 import Map from "../components/Map";
 import Header from "../components/Header";
@@ -21,8 +21,10 @@ import {Helmet} from "react-helmet";
 
 const BBCSleighRide = () => {
 
-  const [isSnowing, setIsSnowing] = useState(false)
+  const [snowflakes, setSnowflakes] = useState(null);
+  const snowflakesRef = useRef(snowflakes)
 
+  snowflakesRef.current = snowflakes;
 
 
 
@@ -72,20 +74,24 @@ const BBCSleighRide = () => {
   // }
 
   const snowStop = () => {
-    window.location.reload();
+    snowflakesRef.current.stop();
   }
 
-  // const handleClick = () => {
-  //   let snowflakes = new Snowflakes();
-  //   snowflakes.stop();
-  //   if (!isSnowing) {
-  //     snowflakes.start()
-  //     setIsSnowing(true);
-  //   } else {
-  //     snowflakes.destroy()
-  //     setIsSnowing(false);
-  //   }
-  // }
+  const handleClick = () => {
+    let snowflakes = new Snowflakes()
+    setSnowflakes(snowflakes)
+    setTimeout(snowStop, 10000)
+
+    // if (!isSnowing) {
+    //   snowflakes.start()
+    //   setIsSnowing(true);
+    // } else {
+    //   snowflakes.destroy()
+    //   setIsSnowing(false);
+    // }
+  }
+
+
 
   // const stopSnow = () => {
   //   const snowflakes = new Snowflakes();
@@ -122,8 +128,8 @@ const BBCSleighRide = () => {
           </div>
             <div className="fun-grid">
 
-              <button onClick={snowStart}>START</button>
-              <button onClick={snowStop}>START</button>
+              <button onClick={handleClick}>START</button>
+              <button onClick={snowStop}>STOP</button>
 
 {/*
               <Helmet>
