@@ -33,6 +33,7 @@
 }
 
 .quiz-welcome-start-instructions {
+    margin: 0 auto !important;
     color: var(--text-alternate);
 }
 
@@ -49,8 +50,8 @@
 /* Quiz welcome svg images */
 
 .quiz-start-svg {
-    height: 40%;
-    width: 40%;
+    height: 250px;
+    width: 250px;
     margin-left: 20px;
     padding-bottom: 1.5em;
     cursor: pointer;
@@ -248,7 +249,9 @@
 }
 
 .end-of-quiz p {
+    max-width: 80%;
     margin-left: .75em;
+    font-size: 1.25em !important;
     line-height: 1.5em;
 }
 
@@ -258,14 +261,15 @@
 
 .quiz-end-cracker-container {
     display: flex;
-    width: 60%;
+    width: 100%;
     justify-content: space-around;
 }
 
 
 .quiz-end-cracker {
-    height: 40%;
-    width: 40%;
+    margin-top: -2.5em;
+    height: 250px;
+    width: 250px;
     transform: rotate(5deg);
     transition-property: all;
     transition-duration: .75s;
