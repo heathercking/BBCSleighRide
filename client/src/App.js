@@ -41,9 +41,7 @@ function App() {
     <Router>
 
       <Header showSanta = {showSanta}/>
-
         {santaToggle ? <Chatbot config = {config} messageParser = {MessageParser} actionProvider = {ActionProvider} placeholderText="Message here"/> : null}
-
           <Routes>
             <Route path="/" element={<BBCSleighRide />} />
             <Route path="/map" element={<MapContainer />} />
