@@ -1,12 +1,12 @@
 import React from "react";
 import '../css/Footer.css';
-
+import footerLogo from '../assets/images/logo_footer.svg';
 
 const Footer = () => {
 
     return (
         <div className="footer">
-          <p class="copyright">Copyright&copy;WinterWonderClan 2021</p>
+          <img className ="logo" src={footerLogo} alt="Logo" />
         </div>
     )
 }

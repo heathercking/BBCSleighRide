@@ -7,7 +7,7 @@ function ErrorPage() {
       <img src={error_image} alt="404" />
 
       <section className="title">
-        <h3>This page is on the naughty list!</h3>
+        <h3>This page is on the naughty list!</h3>\
       </section>
     </div>
   )

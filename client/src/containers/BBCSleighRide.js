@@ -69,39 +69,48 @@ const BBCSleighRide = () => {
 
 
     return (
-        <section className="background">
+      <section className="background">
+        <div className="countdown-title">
+          <img  src={countdownTitle} alt="Countdown to Christmas..." />
+        </div>
         <div className="main-section">
-          <div className="countdown">
-            <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
-          </div>
-          <Countdown/>
-          <div className="learning-grid">
-            <div className="cracker-map-div">
-              <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
-            </div>
 
 
             <div className="learning-grid">
-              <div>
+
+              <div className="cracker-map-wrapper">
                 <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
               </div>
-              <div className="cracker-quiz-div">
-                <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
+
+              <div className="countdown-wrapper">
+                <Countdown/>
               </div>
+
+              <div className="cracker-quiz-wrapper">
+                <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
               </div>
 
             </div>
-              <div className="fun-grid">
-                {/* <button >START</button> */}
-                <img className="snowflake" src={snowflake} alt="Snowflake" onClick={snowStart}/>
-                <img id="joke-button" className="cracker-joke" src={jokeCracker} alt="Joke" onClick={() => {setModalOpen(true);
-        }}/>
 
-              {modalOpen && <JokeContainer setOpenModal={setModalOpen} />}
+
+            <div className="fun-grid">
+
+              <div className="snowflake-wrapper">
+                <img className="snowflake" src={snowflake} alt="Snowflake" onClick={snowStart}/>
+              </div>
+
+              <div className="joke-wrapper">
+                <img id="joke-button" className="cracker-joke" src={jokeCracker} alt="Joke" onClick={() => {setModalOpen(true);}}/>
+                {modalOpen && <JokeContainer setOpenModal={setModalOpen} />}
+              </div>
+
+              <div className="present-wrapper">
                 <img className="present" src={present} alt="Present" />
               </div>
-          </div>
 
+            </div>
+
+          </div>
 
         </section>
     )

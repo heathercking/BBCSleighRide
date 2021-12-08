@@ -35,18 +35,20 @@ function App() {
 
       <Header showSanta = {showSanta}/>
         {santaToggle ? <Chatbot config = {config} messageParser = {MessageParser} actionProvider = {ActionProvider} placeholderText="Message here"/> : null}
-          <Routes>
-            <Route path="/" element={<BBCSleighRide />} />
-            <Route path="/map" element={<MapContainer />} />
-            <Route path="/quiz" element={<QuizContainer />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
+          <div className="background">
+            <Routes>
+              <Route path="/" element={<BBCSleighRide />} />
+              <Route path="/map" element={<MapContainer />} />
+              <Route path="/quiz" element={<QuizContainer />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+          </div>
 
       <Footer />
 
 
     </Router>
-     
+
   );
 }
 
