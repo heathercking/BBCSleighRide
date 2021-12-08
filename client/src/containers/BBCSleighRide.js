@@ -113,10 +113,10 @@ const BBCSleighRide = () => {
             <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
           </div>
           <div className="learning-grid">
-            <div>
+            <div className="cracker-map-div">
               <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
             </div>
-            <div>
+            <div className="cracker-quiz-div">
               <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
             </div>
           </div>
