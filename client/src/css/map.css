@@ -83,7 +83,14 @@ h1 {
 .map-cracker {
     height: 140%;
     transform: rotate(-5deg);
+    cursor: pointer;
+    /* transition-property: all;
+    transition-duration: .75s; */
 }
+/* .map-cracker:hover {
+    transform: rotate(5deg);
+    transform: scale(1.25);
+} */
 
 .bauble-instructions {
     width: 7%;
