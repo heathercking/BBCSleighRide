@@ -12,18 +12,14 @@ import Footer from './components/Footer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
+import {useState, useEffect} from 'react';
 import Chatbot from 'react-chatbot-kit';
 import './css/Santa.css';
 import config from './components/chatbot/config';
 import MessageParser from './components/chatbot/MessageParser';
 import ActionProvider from './components/chatbot/ActionProvider';
 
-
-
-
-
 function App() {
-
   const [santaToggle, setSantaToggle] = useState(false)
 
   const showSanta = () => {
