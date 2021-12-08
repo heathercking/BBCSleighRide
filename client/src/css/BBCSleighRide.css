@@ -6,7 +6,9 @@
   --red-christmas: #D20018;
   --green-light: #339900;
   --green-dark: #00863D;
-  --baby-powder-white: #eeeeee;
+
+  --baby-powder-white: #FEFFFD;
+
 
   /* Font colours */
 
@@ -152,6 +154,7 @@ h2 {
   transition-property: all;
   transition: .4s ease-in;
   transform: rotate(5deg);
+  padding-top: 10px;
 }
 
 .snowflake:hover {
@@ -164,8 +167,8 @@ h2 {
   cursor: pointer;
   width: 200px;
   transition-property: all;
-  transition: .4s ease-in;
-  /* transform: rotate(5deg); */
+  transition: .3s ease-in;
+  transform: rotate(-5deg);
 }
 
 .present:hover {
