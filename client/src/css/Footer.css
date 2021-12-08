@@ -2,7 +2,7 @@
   /* position: absolute; */
   width: 100%;
   background-color: var(--red-bbc);
-  height: 5rem;
+  height: 10vh;
   color: var(--baby-powder-white);
   font-weight: bold;
   display: flex;
@@ -10,4 +10,17 @@
   justify-content: center;
   /* margin-bottom: 0!important;
   margin-top: auto; */
+}
+
+.footer-wrapper {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.footer-logo {
+  height: 100%;
+  width: max(450px, 25vw);
 }
