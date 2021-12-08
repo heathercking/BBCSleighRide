@@ -76,16 +76,19 @@ const BBCSleighRide = () => {
           </div>
           <Countdown/>
           <div className="learning-grid">
-            <div>
+            <div className="cracker-map-div">
               <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
             </div>
+
+
             <div className="learning-grid">
               <div>
                 <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
               </div>
-              <div>
+              <div className="cracker-quiz-div">
                 <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
               </div>
+
             </div>
               <div className="fun-grid">
                 {/* <button >START</button> */}
