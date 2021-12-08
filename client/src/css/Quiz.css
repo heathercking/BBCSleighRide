@@ -156,10 +156,10 @@
 }
 
 .quiz-question-nav-crackers {
-    height: 250px;
-    width: 250px;
+    height: 450px;
+    width: 450px;
     /* margin: 1.5em 0; */
-    margin-top: -2em;
+    margin-top: 0;
     cursor: pointer;
     transition-property: all;
     transition: .4s ease-in;

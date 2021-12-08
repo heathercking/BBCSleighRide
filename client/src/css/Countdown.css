@@ -6,14 +6,7 @@
     padding: 1em 3em;
     padding-top: 2em;
     border-radius: 5%;
- 
 } */
-
-.timer-wrapper {
-    display: flex;
-    margin: 0 auto;
-    width: fit-content;
-}
 
 /* .timer-section {
     display: flex;
@@ -21,6 +14,17 @@
     padding-right: 2.5em;
     color: var(--baby-powder-white);
 } */
+
+
+
+.timer-clock {
+    height: fit-content;
+}
+
+.timer-clock, .timer-clock .timer-colon-span {
+    font-size: 3.7vw;
+    padding: 0 .25em;
+}
 
 .timer-section p:nth-child(2) {
     /* font-size: 4em; */
