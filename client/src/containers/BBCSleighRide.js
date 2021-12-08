@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import Map from "../components/Map";
 import Header from "../components/Header";
+import Countdown from "../components/Countdown";
 import Quiz from "./QuizContainer";
 import Joke from "../components/Joke";
 import Footer from "../components/Footer";
@@ -108,6 +109,7 @@ const BBCSleighRide = () => {
           <div className="countdown">
             <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
           </div>
+          <Countdown/>
           <div className="learning-grid">
             <div>
               <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
