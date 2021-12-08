@@ -1,0 +1,24 @@
+.error-title {
+  margin: 1.5em auto 0 auto;
+  height: fit-content;
+}
+
+.error-header {
+  color: var(--baby-powder-white);
+  font-size: 2.5rem;
+  width: 100%;
+  text-align: center;
+  font-family: var(--standard-font) !important;
+  margin: 1.5em 0 0 0 !important;
+}
+
+.error-image-wrapper {
+  display: flex;
+  justify-content: center;
+
+}
+
+.error-image {
+  align-items: center;
+  width: max(60vw, 450px);
+}

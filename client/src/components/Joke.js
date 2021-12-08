@@ -11,5 +11,5 @@ const Joke = ({joke}) => {
         </div>
     </div>
     )}
-
+ 
 export default Joke;

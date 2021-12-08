@@ -17,33 +17,30 @@ import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
 import hohoho from "../assets/sounds/hohoho.mp3";
 import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3";
 import sleighbells from "../assets/sounds/sleigh-bells.wav";
-import baubleGreetings from "../assets/images/bauble_greetings.svg"
-import baubleDates from "../assets/images/bauble_dates.svg"
-import baubleFoods from "../assets/images/bauble_foods.svg"
-import cracker from "../assets/images/christmas_cracker_next.svg"
+import baubleGreetings from "../assets/images/bauble_greetings.svg";
+import baubleDates from "../assets/images/bauble_dates.svg";
+import baubleFoods from "../assets/images/bauble_foods.svg";
+import crackerGreetings from "../assets/images/christmas_cracker_greetings.svg";
+import crackerDates from "../assets/images/christmas_cracker_dates.svg";
+import crackerFoods from "../assets/images/christmas_cracker_foods.svg";
+import bauble_instructions from "../assets/images/bauble_instructions.svg";
 
 
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-    const [position, setPosition] = useState({ coordinates: [10, 9], zoom: 1.1 });
+    const [position, setPosition] = useState({ coordinates: [10, 8], zoom: 1.1 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
     const [sleighBells] = useSound(sleighbells);
     const [openMapModal, setOpenMapModal] = useState(false);
 
-    useEffect( () => {
-        componentDidMount();
-    })
+
 
     if (!countriesData) {
         return null
       }
-
-    const componentDidMount = () => {
-        window.addEventListener('load', setModal)
-    }
 
     const setModal = () => {
         setOpenMapModal(true);
@@ -76,10 +73,6 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
         setPosition(position);
     }
 
-    //MAP CLICK FUNCTIONS
-    // const handleGeoClick = () => {
-    //     play2()
-    // }
 
 
     //MAP DATA
@@ -104,22 +97,18 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
 
     return (
         <>
-        <div>
-            <button type="openModalBtn" onClick={() => {setOpenMapModal(true)}}>MODAL</button>
-            {openMapModal && <MapModal setOpenModal={setOpenMapModal}/>}
-        </div>
+
 
         <div className="map-container">
             <div className="map-filters">
-                {/* <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting"><img src={cracker} className="bauble"/></button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated"><img src={cracker} className="bauble"/></button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal"><img src={cracker} className="bauble"/></button> */}
-                <input className="map-cracker" type="image" src={cracker} alt="greeting" name="filter" value="greeting" onClick={handleChange}/>
-                <input className="map-cracker" type="image" src={cracker} alt="dates" name="filter" value="celebrated" onClick={handleChange}/>
-                <input className="map-cracker" type="image" src={cracker} alt="foods" name="filter" value="meal" onClick={handleChange}/>
+                <img className="bauble-instructions" src={bauble_instructions} type="openModalBtn" onClick={() => {setOpenMapModal(true)}}/>
+                    {openMapModal && <MapModal setOpenModal={setOpenMapModal}/>}
+                <input className="map-cracker" type="image" src={crackerGreetings} alt="greeting" name="filter" value="greeting" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={crackerDates} alt="dates" name="filter" value="celebrated" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={crackerFoods} alt="foods" name="filter" value="meal" onClick={handleChange}/>
             </div>
 
-            <div className="card" onMouseEnter={sleighBells}>
+            <div className="card">
                 <div className="controls">
                     <button onClick={handleZoomIn}>
                     <svg
@@ -147,7 +136,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                     </svg>
                     </button>
                 </div>
-                <ComposableMap data-tip="" width={670} height={320} projectionConfig={{ scale: 140 }} onBlur>
+                <ComposableMap data-tip="" width={650} height={350} projectionConfig={{ scale: 140 }} onBlur>
                     <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                         <Geographies geography={geoUrl}>
                             {({geographies}) => geographies.map(geo =>
@@ -163,26 +152,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 const TOOLTIP = found[chosenFilter];
                                                 const CONTINENT = found["continent"];
                                                 setTooltipContent(`<center><b>${TOOLTIP}</b><br>${NAME}, ${CONTINENT}</center>`)
-                                                // const tooltipContinent = found["continent"]
-                                                // const tooltipGreeting = found["greeting"]
-                                                // const tooltipCelebrated = found["celebrated"]
-                                                // const tooltipDecorations = found["decorations"]
-                                                // const tooltipMeal = found["meal"]
-                                                // setTooltipContent(`
-                                                //     <b>Continent:</b> ${tooltipContinent}
-                                                //     <br>
-                                                //     <b>Greeting:</b> ${tooltipGreeting}
-                                                //     <br>
-                                                //     <b>Day Celebrated:</b> ${tooltipCelebrated}
-                                                //     <br>
-                                                //     <b>Traditional Decorations:</b> ${tooltipDecorations}
-                                                //     <br>
-                                                //     <b>Traditional Meal:</b> ${tooltipMeal}
-                                                //     `)
                                             }
-                                            // else {
-                                            //     setTooltipContent(`${NAME}`)
-                                            // }
                                         }}
                                         onMouseLeave={() => {
                                             setTooltipContent("");
@@ -220,10 +190,6 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                             <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                                         </g>
 
-                                        {/* <g>
-                                        <img src={sleigh}/>
-                                        </g> */}
-
                                         <text
                                             textAnchor="middle"
                                             y="-27"
@@ -231,20 +197,11 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                         >
                                             {name}
                                         </text>
-                                {/* <circle r={5} fill="#008011" /> */}
-                                {/* <a href=""><circle r={5} fill="#008011" /></a> */}
-                                {/* <img src={candyCane} alt=""> */}
-                                {/* <circle>{candyCane}</circle> */}
 
-
-                                {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}>{name}</text> */}
-                                {/* <text textAnchor="middle" y="-11" style={{ fontSize: "8px" }}><img src={candy_cane} alt=""></text> */}
                             </Marker>
                         ))}
                     </ZoomableGroup>
                 </ComposableMap>
-
-
 
             </div>
         </div>

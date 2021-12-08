@@ -21,10 +21,10 @@
     background-color: #FEFFFD;
     margin: 10% auto;
     padding: 20px;
-    border: 3px solid #D20018;
+    border: 6px solid #D20018;
     box-shadow: 0 3px 10px rgba(210,0,24,30);
-    width: 600px;
-    border-radius: 10px;
+    width: 40%;
+    border-radius: 20px;
     text-align: center;
   }
   
