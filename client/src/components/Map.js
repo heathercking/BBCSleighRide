@@ -112,7 +112,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                 <input className="map-cracker" type="image" src={crackerFoods} alt="foods" name="filter" value="meal" onClick={handleChange}/>
             </div>
 
-            <div className="card" onMouseEnter={sleighBells}>
+            <div className="card">
                 <div className="controls">
                     <button onClick={handleZoomIn}>
                     <svg

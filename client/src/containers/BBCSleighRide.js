@@ -87,9 +87,6 @@ const BBCSleighRide = () => {
           </div>
 
     
-
-
-
           <div className="snowflake-wrapper">
             <img className="snowflake" src={snowflake} alt="Snowflake" onClick={snowStart}/>
           </div>

@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from "react";
+import useSound from "use-sound";
+
 import Joke from "../components/Joke";
 import { getJokes } from '../services/SleighRideService';
 import '../css/JokeContainer.css'
 import cracker_exit from '../assets/images/christmas_cracker_exit.svg';
 import santa from '../assets/images/santa_happy.svg';
+import hohoho from "../assets/sounds/hohoho.mp3";
 
 const JokeContainer = ({setOpenModal}) => {
 
@@ -11,6 +14,7 @@ const JokeContainer = ({setOpenModal}) => {
     const [randomJoke, setRandomJoke] = useState(null);
     const [toggleJoke, setToggleJoke] = useState(false);
     const [jokeTally, setJokeTally] = useState(0);
+
 
     useEffect(() => {
       getJokes()
@@ -37,7 +41,7 @@ const JokeContainer = ({setOpenModal}) => {
 
     const handleClick = (event) => {
       setToggleJoke(true)
-      setJokeTally(jokeTally + 1)
+      setJokeTally(jokeTally + 1);
     }
 
   const nodeItems = shuffledJokes.map(joke => {

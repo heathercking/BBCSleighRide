@@ -13,8 +13,8 @@ const MapModal = ({setOpenModal}) => {
                     <h1 className="map-modal-title">Take Santa for a Sleigh Ride!</h1>
 
                     <div className="map-modal-body">
-                        <p>1) Select a bauble </p>
-                        <p>2) Land Santa's Sleigh by each candy cane</p>
+                        <p>1) Select a Christmas cracker </p>
+                        <p>2) Land Santa's Sleigh by each map pin</p>
                         <p>3) See what you can find out about Christmas in that country! </p>
                     </div>
 
