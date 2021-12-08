@@ -13,8 +13,8 @@ class ActionProvider {
     this.stateRef = stateRef;
     this.createCustomMessage = createCustomMessage;
   }
- greet = () => {
-    const greetingMessage1 = this.createChatBotMessage("Hello what is your name?.")
+  greet = () => {
+    const greetingMessage1 = this.createChatBotMessage("Hello what is your name?")
     this.updateChatbotState(greetingMessage1)
   }
 
