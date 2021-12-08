@@ -60,15 +60,26 @@ const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQ
         const newTotal = 0
         removeSelectedAnswer()
         if (quizAnswerIsCorrect) {
-            updateScore(score.correctQuestions + 1, score.incorrectQuestions, score.totalQuestions + 1)
+            updateScore(score.correctQuestions + 1, 
+                        score.incorrectQuestions, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
+
             addCorrectQuestions()
         } else if (quizAnswerIsCorrect == null) {
             setRemainingGuesses(remainingGuesses -1);
             document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
-            updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
+            updateScore(score.correctQuestions, 
+                        score.incorrectQuestions + 1, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
         } else {
-            updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
+            updateScore(score.correctQuestions, 
+                        score.incorrectQuestions + 1, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
         }
+        console.log(score.questionsRemaining)
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }

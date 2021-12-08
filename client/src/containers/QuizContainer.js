@@ -16,12 +16,13 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     var [score, setScore] = useState({
                                                 correctQuestions: 0,
                                                 incorrectQuestions: 0,
-                                                totalQuestions: 0
+                                                totalQuestions: 0,
+                                                questionsRemaining: 5
     });
 
     // const [remainingGuesses, setRemainingGuesses] = useState(5);
 
-    const questionsRemaining = questions.length;
+    // const questionsRemaining = questions.length;
     
 
     useEffect(() => {
@@ -36,13 +37,14 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
         setCorrectQuestions(correctQuestions +1)
     }
 
-    const updateScore = (correct, incorrect, total) => {
+    const updateScore = (correct, incorrect, total, remaining) => {
         setScore((previousObjectState) => {
                 return {
                     ...previousObjectState,
                     correctQuestions: correct,
                     incorrectQuestions: incorrect,
                     totalQuestions: total,
+                    questionsRemaining: remaining
                 }
             })
     }
@@ -82,6 +84,7 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     const replayQuiz = () => {
         setReadyToPlay(false)
         setCorrectQuestions(0)
+        updateScore(0, 0, 0, 5)
         getQuestions()
         .then(data => {
             setQuestions(data)
@@ -89,17 +92,20 @@ const QuizContainer = ({onAnswerCheck, quizAnswerIsCorrect}) => {
     }
 
     const nodeItems = shuffledQuestions.map(question => {
-        return (
-            <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck} correctQuestions = {correctQuestions} addCorrectQuestions = {addCorrectQuestions}/>
+        if (score.questionsRemaining) {
+            return (
+                <QuizQuestion questions = {questions} question = {question} score = {score} removeQuizQuestion = {removeQuizQuestion} updateScore = {updateScore} shuffleArray = {shuffleArray} replayQuiz = {replayQuiz} onAnswerCheck = {onAnswerCheck} correctQuestions = {correctQuestions} addCorrectQuestions = {addCorrectQuestions}/>
         )
+        }
+        
+
     })
     return (
         <div className="quiz-container">
-            {/* <p>hello</p> */}
             {!readyToPlay ? <QuizWelcome onButtonClick = {onButtonClick}/> : null}
             {readyToPlay ? <div>
             {nodeItems.splice(0, 1)}
-            {questionsRemaining == 0 ? <QuizEnd  score = {score} updateScore = {updateScore} replayQuiz = {replayQuiz}/> : null}
+            {!score.questionsRemaining ? <QuizEnd  score = {score} updateScore = {updateScore} replayQuiz = {replayQuiz}/> : null}
             </div>: null}
         </div>
     )
