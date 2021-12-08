@@ -2,7 +2,7 @@
   /* position: fixed; */
   width: 100%;
   background-color: #9D0A0D;
-  height: 120px;
+  height: fit-content;
   align-items: center;
   /* padding: 15px 0; */
 }
