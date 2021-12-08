@@ -13,6 +13,9 @@
   /* Font colours */
 
   --text-alternate: #666666;
+
+  /* Fonts */
+  --standard-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 };
 
 * {
@@ -22,7 +25,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--standard-font);
 }
 
 
@@ -82,7 +85,7 @@ h2 {
 
 .present-wrapper {
   grid-column: 9 / span 3;
-} 
+}
 
 
 
