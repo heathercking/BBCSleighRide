@@ -23,7 +23,7 @@ function Header({showSanta}) {
         <img className ="logo" src={logo} alt="Logo" onClick={handleClick}/>
         <nav className="options">
           <ul>
-            <img className ="santa-happy" src={santa} alt="Logo" onClick={handleSantaClick}/>
+            <img className ="santa-header" src={santa} alt="Logo" onClick={handleSantaClick}/>
           </ul>
         </nav>
       </div>
