@@ -219,7 +219,7 @@ db.quiz.insertMany([
     },
     {
         question: "How do you say merry Christmas in Kenya(their main language is Swahili!)?",
-        correct: "Feliz navidad",
+        correct: "Heri ya Krismasi",
         options: [" Joyeux Noel", "Happy Holidays" ,"Heri ya Krismasi"]
     },
 ]);
