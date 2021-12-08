@@ -1,14 +1,13 @@
-.timer-container {
-    /* max-width: 60%; */
-    margin: 1.5em auto 1.5em auto;
-    padding-right: .5em;
+/* .timer-container {
+    max?-width: 60%;
+
     width: fit-content;
     height: fit-content;
     padding: 1em 3em;
     padding-top: 2em;
     border-radius: 5%;
  
-}
+} */
 
 .timer-wrapper {
     display: flex;
@@ -16,14 +15,14 @@
     width: fit-content;
 }
 
-.timer-section {
+/* .timer-section {
     display: flex;
     flex-direction: column;
     padding-right: 2.5em;
     color: var(--baby-powder-white);
-}
+} */
 
 .timer-section p:nth-child(2) {
-    font-size: 4em;
+    /* font-size: 4em; */
     margin: 0.125em 0 0 0;
 }

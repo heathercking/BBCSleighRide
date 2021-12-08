@@ -41,26 +41,25 @@ const Countdown = () => {
     })
 
     return (
-        <div className = "timer-container">
-            <div className="timer-wrapper">
+            // <div className="timer-wrapper">
+            <>
                 <section className="timer-section">
-                    <p>Days</p>
-                    <p>{timerDays}</p>
+                    <p>D</p>
+                    <p>{timerDays}:</p>
                 </section>
                 <section className="timer-section">
-                    <p>Hours</p>
-                    <p>{timerHours}</p>
+                    <p>H</p>
+                    <p>{timerHours}:</p>
                 </section>
                 <section className="timer-section">
-                    <p>Minutes</p>
-                    <p>{timerMinutes}</p>
+                    <p>M</p>
+                    <p>{timerMinutes}:</p>
                 </section>
                 <section className="timer-section">
-                    <p>Seconds</p>
+                    <p>S</p>
                     <p>{timerSeconds}</p>
                 </section>
-            </div>
-        </div>
+            </>
     )
 }
 

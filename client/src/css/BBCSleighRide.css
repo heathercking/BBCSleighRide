@@ -6,7 +6,7 @@
   --red-christmas: #D20018;
   --green-light: #339900;
   --green-dark: #00863D;
-  --baby-powder-white: #FEFFFD;
+  --baby-powder-white: #1f3608;
 
   /* Font colours */
 
@@ -39,37 +39,45 @@ h2 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto;
-  background-color: #9D0A0E;
+  /* background-color: #9D0A0E; */
   min-height: 75vh;
-  width: 80%;
-  max-width: 1500px;
+  width: 100%;
   margin: 0 auto !important;
   text-align: center;
 }
 
-.learning-grid {
-  grid-row: 1;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.fun-grid {
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
 .cracker-map-wrapper {
-  grid-column: auto / span 4;
+  grid-column: 2 / span 3;
+  grid-row: 1;
 }
 
 .countdown-wrapper {
-  grid-column: auto / span 4;
+  /* background-color: green; */
+  width: 100%;
+  text-align: center;
+  color: var(--baby-powder-white);
+  display: flex;
+  justify-content: center;
+  grid-column: 6 / span 2;
+  grid-row: 1;
 }
 
 .cracker-quiz-wrapper {
-  grid-column: auto / span 4;
+  grid-column: 9 / span 3;
 }
+
+.snowflake-wrapper {
+  grid-column: 2 / span 3;
+}
+
+.joke-wrapper {
+  margin: 0 50px;
+  grid-column: 5 / span 4;
+}
+
+.present-wrapper {
+  grid-column: 9 / span 3;
+} 
 
 
 
