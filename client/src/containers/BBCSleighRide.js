@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 
 import Map from "../components/Map";
 import Header from "../components/Header";
+import Countdown from "../components/Countdown";
 import Quiz from "./QuizContainer";
 import Joke from "../components/Joke";
 import Footer from "../components/Footer";
@@ -15,6 +16,7 @@ import countdownTitle from '../assets/images/christmas_countdown.svg';
 import snowflake from '../assets/images/snowflake_3.svg';
 import present from '../assets/images/present.svg';
 import '../css/BBCSleighRide.css';
+import '../css/Countdown.css';
 
 import Snowflakes from "magic-snowflakes";
 import {Helmet} from "react-helmet";
@@ -68,9 +70,14 @@ const BBCSleighRide = () => {
 
     return (
         <section className="background">
-          <div className="main-section">
-            <div className="countdown">
-              <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
+        <div className="main-section">
+          <div className="countdown">
+            <img className="countdown-title" src={countdownTitle} alt="Countdown to Christmas..." />
+          </div>
+          <Countdown/>
+          <div className="learning-grid">
+            <div>
+              <img className="cracker-map" src={mapCracker} alt="Map" onClick={handleMapClick}/>
             </div>
             <div className="learning-grid">
               <div>
