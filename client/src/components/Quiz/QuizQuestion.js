@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import ReactDOM from 'react-dom'
 import { BsFillCheckCircleFill, BsFillXCircleFill } from 'react-icons/bs';
 import {useNavigate} from 'react-router-dom';
+import useSound from 'use-sound';
 import {nextQuestion} from '../../services/QuizLogic'
 import QuizTally from './QuizTally'
 import candy_cane from '../../assets/images/candy_cane.svg';
@@ -10,6 +11,8 @@ import cracker_exit from '../../assets/images/christmas_cracker_exit.svg';
 import present from '../../assets/images/present.svg';
 import cracker_replay from '../../assets/images/christmas_cracker_replay.svg';
 import quizElf from '../../assets/images/elf_sad.svg';
+import incorrect from "../../assets/sounds/Incorrect-answer.mp3";
+import correct from "../../assets/sounds/Correct-answer.mp3";
 
 
 const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQuestions, removeQuizQuestion, replayQuiz, updateScore, shuffleArray, onAnswerCheck, questionsRemaining}) => {
@@ -18,11 +21,14 @@ const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQ
     const [quizAnswerIsCorrect, setQuizAnswerIsCorrect] = useState(null);
     const [remainingGuesses, setRemainingGuesses] = useState(5);
     const [index, setIndex] = useState(0);
+    const [sound1] = useSound(correct);
+    const [sound2] = useSound(incorrect);
+
     let navigate = useNavigate();
 
     const candyCanes = [...Array(5)].map((e, i) => <img src={candy_cane} alt="candy cane image" className = "candy-cane-quiz-lives"/>)
     const presents = [...Array(correctQuestions)].map((e, i) => <img src={present} alt="candy cane image" className = "presents-correct-tally"/>)
-
+    
     // useEffect(() => {
     //     getRandomOptions(question.options)
     // }, [])
@@ -44,15 +50,20 @@ const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQ
 
     const handleClick = (event) => {
         const selectedElement = event.target;
+        const soundsArray = [sound1, sound2]
+        const toPlayCorrect = soundsArray[0]
+        const toPlayIncorrect = soundsArray[1]
         removeSelectedAnswer()
         if (event.target.innerHTML == question.correct) {
             setQuizAnswerIsCorrect(true);
             selectedElement.classList.add("selected-true");
+            toPlayCorrect()
         } else {
             setQuizAnswerIsCorrect(false);
             setRemainingGuesses(remainingGuesses -1)
             document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
             selectedElement.classList.add("selected-false");
+            toPlayIncorrect()
         }
     }
 
@@ -60,15 +71,26 @@ const QuizQuestion = ({questions, question, score, correctQuestions, addCorrectQ
         const newTotal = 0
         removeSelectedAnswer()
         if (quizAnswerIsCorrect) {
-            updateScore(score.correctQuestions + 1, score.incorrectQuestions, score.totalQuestions + 1)
+            updateScore(score.correctQuestions + 1, 
+                        score.incorrectQuestions, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
+
             addCorrectQuestions()
         } else if (quizAnswerIsCorrect == null) {
             setRemainingGuesses(remainingGuesses -1);
             document.getElementsByClassName("candy-cane-quiz-lives")[0].className = "hidden-candy";
-            updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
+            updateScore(score.correctQuestions, 
+                        score.incorrectQuestions + 1, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
         } else {
-            updateScore(score.correctQuestions, score.incorrectQuestions + 1, score.totalQuestions + 1)
+            updateScore(score.correctQuestions, 
+                        score.incorrectQuestions + 1, 
+                        score.totalQuestions + 1, 
+                        score.questionsRemaining -1)
         }
+        console.log(score.questionsRemaining)
         setQuizAnswerIsCorrect(null);
         removeQuizQuestion(question)
     }

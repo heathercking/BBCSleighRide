@@ -12,7 +12,7 @@ const JokeContainer = ({setOpenModal}) => {
 
     const [jokes,setJokes] = useState([]);
     const [randomJoke, setRandomJoke] = useState(null);
-    const [toggleJoke, setToggleJoke] = useState(false);
+    const [toggleJoke, setToggleJoke] = useState(true);
     const [jokeTally, setJokeTally] = useState(0);
 
 
@@ -22,6 +22,8 @@ const JokeContainer = ({setOpenModal}) => {
           setJokes(data)
       })
   }, [toggleJoke,jokeTally])
+
+   
 
     const shuffleArray = (array) => {
       let currentIndex = array.length, randomIndex;
@@ -40,13 +42,22 @@ const JokeContainer = ({setOpenModal}) => {
     const shuffledJokes = shuffleArray(jokes).splice(-1);
 
     const handleClick = (event) => {
+      const sel = document.getElementById("joke-punchline-id"); 
+      console.log(sel)
+      sel.classList.remove("punchline-animation")
+      setTimeout(function() {
+        sel.classList.add("punchline-animation")
+      }, 1);
+      
+      // sel.classList.add("")
+      setToggleJoke(false)
       setToggleJoke(true)
       setJokeTally(jokeTally + 1);
     }
 
   const nodeItems = shuffledJokes.map(joke => {
           return (
-              <Joke joke={joke} />
+              <Joke joke={joke} toggleJoke = {toggleJoke}/>
           )
   })
 
