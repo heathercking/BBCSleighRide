@@ -2,7 +2,16 @@
   text-align: center;
 }
 
-
+.background {
+  background-image: linear-gradient(rgba(4,9,30,0.0), rgba(4,9,30,0.0)), url(./assets/images/green_background_narrow.svg);
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .App-logo {
   height: 40vmin;
@@ -38,3 +47,4 @@
     transform: rotate(360deg);
   }
 }
+

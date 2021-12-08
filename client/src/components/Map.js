@@ -1,4 +1,4 @@
-import React, {useState, memo} from "react";
+import React, {useState, memo, useEffect} from "react";
 import { ReactDOM } from "react";
 import {
     ComposableMap,
@@ -9,25 +9,45 @@ import {
 } from "react-simple-maps";
 import useSound from 'use-sound';
 
+import MapModal from "./MapModal";
+
 import "../css/map.css";
 import sleigh from "../assets/images/sleigh_55_33.svg";
 import jingle_bells from "../assets/sounds/jingle_bells_cut.mp3";
 import hohoho from "../assets/sounds/hohoho.mp3";
-import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3"
-
+import wishyoumerry from "../assets/sounds/we_wish_you_a_merry_christmas.mp3";
+import sleighbells from "../assets/sounds/sleigh-bells.wav";
+import baubleGreetings from "../assets/images/bauble_greetings.svg"
+import baubleDates from "../assets/images/bauble_dates.svg"
+import baubleFoods from "../assets/images/bauble_foods.svg"
+import cracker from "../assets/images/christmas_cracker_next.svg"
 
 
 
 const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter } ) => {
 
-    const [position, setPosition] = useState({ coordinates: [10, 8], zoom: 1.15 });
+    const [position, setPosition] = useState({ coordinates: [10, 9], zoom: 1.1 });
     const [play1] = useSound(jingle_bells);
     const [play2] = useSound(hohoho);
     const [play3] = useSound(wishyoumerry);
+    const [sleighBells] = useSound(sleighbells);
+    const [openMapModal, setOpenMapModal] = useState(false);
+
+    useEffect( () => {
+        componentDidMount();
+    })
 
     if (!countriesData) {
         return null
       }
+
+    const componentDidMount = () => {
+        window.addEventListener('load', setModal)
+    }
+
+    const setModal = () => {
+        setOpenMapModal(true);
+    }
 
 
     //FOR WHEN FILTER BUTTONS ARE SELECTED
@@ -84,15 +104,22 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
 
     return (
         <>
+        <div>
+            <button type="openModalBtn" onClick={() => {setOpenMapModal(true)}}>MODAL</button>
+            {openMapModal && <MapModal setOpenModal={setOpenMapModal}/>}
+        </div>
 
         <div className="map-container">
             <div className="map-filters">
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting">How do you say 'Merry Christmas' in different languages?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated">What day is Christmas celebrated on?</button>
-                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal">What's the traditional Christmas dinner?</button>
+                {/* <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="greeting"><img src={cracker} className="bauble"/></button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="celebrated"><img src={cracker} className="bauble"/></button>
+                <button onClick={handleChange} className="map-filter-btn" type="submit" name="filter" value="meal"><img src={cracker} className="bauble"/></button> */}
+                <input className="map-cracker" type="image" src={cracker} alt="greeting" name="filter" value="greeting" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={cracker} alt="dates" name="filter" value="celebrated" onClick={handleChange}/>
+                <input className="map-cracker" type="image" src={cracker} alt="foods" name="filter" value="meal" onClick={handleChange}/>
             </div>
 
-            <div className="card">
+            <div className="card" onMouseEnter={sleighBells}>
                 <div className="controls">
                     <button onClick={handleZoomIn}>
                     <svg
@@ -120,7 +147,7 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                     </svg>
                     </button>
                 </div>
-                <ComposableMap data-tip="" width={750} height={400} projectionConfig={{ scale: 160 }} onBlur>
+                <ComposableMap data-tip="" width={670} height={320} projectionConfig={{ scale: 140 }} onBlur>
                     <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={handleMoveEnd}>
                         <Geographies geography={geoUrl}>
                             {({geographies}) => geographies.map(geo =>
@@ -153,9 +180,9 @@ const Map = ( { countriesData, setTooltipContent, onFilterSelect, chosenFilter }
                                                 //     <b>Traditional Meal:</b> ${tooltipMeal}
                                                 //     `)
                                             }
-                                            else {
-                                                setTooltipContent(`${NAME}`)
-                                            }
+                                            // else {
+                                            //     setTooltipContent(`${NAME}`)
+                                            // }
                                         }}
                                         onMouseLeave={() => {
                                             setTooltipContent("");

@@ -1,27 +1,34 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo_star.svg';
+import santa from '../assets/images/santa_happy.svg';
 import '../css/Header.css';
 
-function Header() {
+
+function Header({showSanta}) {
 
   let navigate = useNavigate();
   function handleClick() {
     navigate('/');
   }
 
+  const handleSantaClick = () => {
+    showSanta()
+  }
+
   return (
+    <>
     <div className="nav-bar">
       <div className="nav-flex">
         <img className ="logo" src={logo} alt="Logo" onClick={handleClick}/>
         <nav className="options">
           <ul>
-            <div className="link">Blog</div>
-            <div className="link">Santa</div>
+            <img className ="santa-header" src={santa} alt="Logo" onClick={handleSantaClick}/>
           </ul>
         </nav>
       </div>
     </div>
+    </>
   )
 }
 
