@@ -6,7 +6,9 @@
   --red-christmas: #D20018;
   --green-light: #339900;
   --green-dark: #00863D;
+
   --baby-powder-white: #FEFFFD;
+
 
   /* Font colours */
 
@@ -52,8 +54,11 @@ h2 {
 }
 
 .countdown-wrapper {
-  /* background-color: green; */
+  /* margin-top: 2.5em; */
+  height: fit-content;
+  width: fit-content;
   width: 100%;
+  font-size: 2.25em;
   text-align: center;
   color: var(--baby-powder-white);
   display: flex;

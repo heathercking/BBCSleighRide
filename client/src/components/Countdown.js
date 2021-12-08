@@ -42,23 +42,15 @@ const Countdown = () => {
 
     return (
             // <div className="timer-wrapper">
-            <>
-                <section className="timer-section">
-                    <p>D</p>
-                    <p>{timerDays}:</p>
-                </section>
-                <section className="timer-section">
-                    <p>H</p>
-                    <p>{timerHours}:</p>
-                </section>
-                <section className="timer-section">
-                    <p>M</p>
-                    <p>{timerMinutes}:</p>
-                </section>
-                <section className="timer-section">
-                    <p>S</p>
-                    <p>{timerSeconds}</p>
-                </section>
+            <>   
+                <p className = "timer-clock">{timerDays}
+                    <span className="timer-colon-span">:</span>
+                    {timerHours}
+                    <span className="timer-colon-span">:</span>
+                    {timerMinutes}
+                    <span className="timer-colon-span">:</span>
+                    {timerSeconds}
+                </p>
             </>
     )
 }
