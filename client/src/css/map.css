@@ -85,6 +85,12 @@ h1 {
     transform: rotate(-5deg);
 }
 
+.bauble-instructions {
+    width: 100px;
+    display: flex;
+    
+}
+
 
 
 /* ZOOM CONTROLS */
