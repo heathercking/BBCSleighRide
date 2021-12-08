@@ -13,7 +13,7 @@ import quizCracker from '../assets/images/christmas_cracker_quiz.svg';
 import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
 import mapCracker from '../assets/images/christmas_cracker_map.svg';
 import countdownTitle from '../assets/images/christmas_countdown.svg';
-import snowflake from '../assets/images/snowflake_3.svg';
+import snowflake from '../assets/images/snowflake_button.svg';
 import present from '../assets/images/present.svg';
 import '../css/BBCSleighRide.css';
 import '../css/Countdown.css';
