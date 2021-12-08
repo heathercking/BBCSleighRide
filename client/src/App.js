@@ -1,5 +1,5 @@
 import './App.css';
-import react, {useState} from 'react';
+import react, {useState, useEffect} from 'react';
 import BBCSleighRide from './containers/BBCSleighRide';
 import {
   BrowserRouter as Router,
@@ -12,7 +12,6 @@ import Footer from './components/Footer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
-import {useState, useEffect} from 'react';
 import Chatbot from 'react-chatbot-kit';
 import './css/Santa.css';
 import config from './components/chatbot/config';

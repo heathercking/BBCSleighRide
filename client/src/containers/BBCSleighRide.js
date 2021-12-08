@@ -88,6 +88,7 @@ const BBCSleighRide = () => {
               <div className="cracker-quiz-div">
                 <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
               </div>
+              </div>
 
             </div>
               <div className="fun-grid">
