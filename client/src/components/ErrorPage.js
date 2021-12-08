@@ -1,10 +1,10 @@
 import React from 'react';
-import sleigh from '../assets/images/sleigh.svg';
+import error_image from '../assets/images/404_page.svg';
 
 function ErrorPage() {
   return (
     <div className="main-container">
-      <img src={sleigh} alt="Logo" />
+      <img src={error_image} alt="404" />
 
       <section className="title">
         <h3>This page is on the naughty list!</h3>
