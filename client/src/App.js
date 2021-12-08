@@ -11,8 +11,17 @@ import Footer from './components/Footer';
 import QuizContainer from './containers/QuizContainer';
 import MapContainer from './containers/MapContainer';
 import ErrorPage from './components/ErrorPage';
+import {useState, useEffect} from 'react';
 
 function App() {
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 4000)
+  }, [])
+
+
   return (
 
     <Router>
