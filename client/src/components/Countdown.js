@@ -40,33 +40,28 @@ const Countdown = () => {
         }
     })
 
-
     return (
-        <section className = "timer">
-            <p>Countdown until the most wonderful time of the year</p>
-            <section>
-                <p>{timerDays}</p>
-                <p>Days</p>
-            </section>
-            <span>:</span>
-            <section>
-                <p>{timerHours}</p>
-                <p>Hours</p>
-            </section>
-            <span>:</span>
-            <section>
-                <p>{timerMinutes}</p>
-                <p>Minutes</p>
-            </section>
-            <span>:</span>
-            <section>
-                <p>{timerSeconds}</p>
-                <p>Seconds</p>
-            </section>
-            <span>:</span>
-        </section>
+        <div className = "timer-container">
+            <div className="timer-wrapper">
+                <section className="timer-section">
+                    <p>Days</p>
+                    <p>{timerDays}</p>
+                </section>
+                <section className="timer-section">
+                    <p>Hours</p>
+                    <p>{timerHours}</p>
+                </section>
+                <section className="timer-section">
+                    <p>Minutes</p>
+                    <p>{timerMinutes}</p>
+                </section>
+                <section className="timer-section">
+                    <p>Seconds</p>
+                    <p>{timerSeconds}</p>
+                </section>
+            </div>
+        </div>
     )
-    
 }
 
 export default Countdown;

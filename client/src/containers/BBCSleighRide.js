@@ -14,6 +14,7 @@ import jokeCracker from '../assets/images/christmas_cracker_joke.svg';
 import mapCracker from '../assets/images/christmas_cracker_map.svg';
 import countdownTitle from '../assets/images/christmas_countdown.svg';
 import '../css/BBCSleighRide.css';
+import '../css/Countdown.css';
 
 import Snowflakes from "magic-snowflakes";
 import {Helmet} from "react-helmet";
