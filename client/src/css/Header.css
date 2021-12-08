@@ -1,39 +1,34 @@
 .nav-bar {
-  /* position: fixed; */
+  position: relative;
   width: 100%;
   background-color: #9D0A0D;
-  height: 150px;
+  height: 10vh;
   align-items: center;
-  /* padding: 15px 0; */
-}
-
-.logo {
-  cursor: pointer;
-  width: 500px;
-  /* margin: 0px 20px; */
-}
-
-.nav-bar ul {
-  display: flex;
-  color: var(--baby-powder-white);
-  gap: 20px;
-  margin: 0 60px 0 0;
-  align-items: center;
-}
-
-.nav-bar .link {
-  padding: 10px;
-  font-size: 25px;
-  font-weight: bold;
 }
 
 .nav-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  cursor: pointer;
+  height: 100%;
+  width: max(450px, 25vw);
 }
 
 .santa-happy {
   cursor: pointer;
+  height: 100%;
   width: 100px;
+}
+
+.nav-bar ul {
+  display: flex;
+  gap: 20px;
+  margin: 0 60px 0 0;
+  align-items: center;
 }
