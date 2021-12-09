@@ -43,6 +43,11 @@ const BBCSleighRide = () => {
     navMap('/map');
   }
 
+  let navPresent = useNavigate();
+  function handlePresentClick() {
+    navMap('/santasmells');
+  }
+
   const snowStop = () => {
     snowflakesRef.current.destroy();
   }
@@ -97,7 +102,7 @@ const BBCSleighRide = () => {
           </div>
 
           <div className="present-wrapper">
-            <img className="present" src={present} alt="Present" />
+            <img className="present" src={present} alt="Present" onClick={handlePresentClick}/>
           </div>
         </div>
       </section>
