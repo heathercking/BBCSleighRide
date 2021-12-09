@@ -234,7 +234,7 @@
 
 .end-of-quiz {
     width: 60%;
-    background-color: var(--baby-powder-white);
+    background-color: var(--baby-powder-white) !important;
     margin: 2em auto 2.5em auto;
     margin-top: 1.5em;
     border: 1px solid var(--text-alternate);
@@ -255,6 +255,8 @@
     font-size: 1.25em !important;
     line-height: 1.5em;
 }
+
+
 
 
 
@@ -291,6 +293,7 @@
     width: 60%;
     margin: 0 auto;
     margin-top: 1.5em;
+    background-color: var(--baby-powder-white) !important;
     border: 1px solid var(--text-alternate);
     padding: 1em;
     border-radius: 45px;
@@ -316,4 +319,13 @@
     margin-left: 1.5em;
     height: 50%;
     width: 50%;
+    transform: rotate(5deg);
+    transition-property: all;
+    transition-duration: .75s;
+}
+
+.quiz-question-lose-crackers:hover {
+  cursor: pointer;
+  transform: rotate(5deg);
+  transform: scale(1.25);
 }

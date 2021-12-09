@@ -64,7 +64,7 @@ const BBCSleighRide = () => {
         zIndex: 100 // Default: 9999
     })
     setSnowflakes(snowflakes)
-    setTimeout(snowStop, 30000);
+    setTimeout(snowStop, 15000);
   }
 
 
@@ -86,7 +86,7 @@ const BBCSleighRide = () => {
             <img className="cracker-quiz" src={quizCracker} alt="Quiz" onClick={handleQuizClick}/>
           </div>
 
-    
+
           <div className="snowflake-wrapper">
             <img className="snowflake" src={snowflake} alt="Snowflake" onClick={snowStart}/>
           </div>
