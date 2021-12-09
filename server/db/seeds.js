@@ -97,7 +97,7 @@ db.countries.insertMany([
         name: "Brazil",
         continent: "South America",
         song: "'Noite Feliz' (Silent Night)",
-        greeting: "",
+        greeting: "Feliz Natal",
         celebrated: "24th & 25th December",
         meal: "Pork, turkey, ham, salads and fresh and dried fruits served with rice cooked with raisins and a good spoon of 'farofa' (seasoned manioc flour.)",
         decorations: "Nativity Scenes, known as Presépio are very popular. They are set-up in churches and homes all through December",
@@ -123,7 +123,7 @@ db.countries.insertMany([
         decorations: "A banana or mango tree is decorated (or whatever tree people can find to decorate!). Sometimes people use mango leaves to decorate their homes.",
         didyouknow: "Father Christmas is know as 'Christmas Baba' in Hindi, 'Baba Christmas' in Urdu, 'Christmas Thaathaa' in Tamil and 'Christmas Thatha' in Telugu, 'Natal Bua' in Marathi. In Kerala state, he's known as 'Christmas Papa'"
     }
-    
+
 ]);
 
 db.jokes.insertMany([
@@ -134,7 +134,7 @@ db.jokes.insertMany([
     {   joke: "Why was the snowman looking through the carrots?",
         punchline: "He was picking his nose!"
     },
-    {	
+    {
         joke: "Why does everyone love Frosty the Snowman?",
         punchline: "He’s cool"
     },
@@ -150,7 +150,7 @@ db.jokes.insertMany([
         joke: "What do Santa's elves learn in school?",
         punchline: "The elf-abet"
     },
-    {	
+    {
         joke: "What goes 'Oh, Oh, Oh?'",
         punchline: "Santa walking backwards!"
     },
@@ -170,7 +170,7 @@ db.jokes.insertMany([
         joke: "What do monkey’s sing at Christmas?",
         punchline: "Jungle bells!"
     }
-    
+
 ]);
 
 db.quiz.insertMany([
