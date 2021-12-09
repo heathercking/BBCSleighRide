@@ -21,11 +21,7 @@ function Header({showSanta}) {
     <div className="nav-bar">
       <div className="nav-flex">
         <img className ="logo" src={logo} alt="Logo" onClick={handleClick}/>
-        <nav className="options">
-          <ul>
-            <img className ="santa-header" src={santa} alt="Logo" onClick={handleSantaClick}/>
-          </ul>
-        </nav>
+        <img className ="santa-header" src={santa} alt="Logo" onClick={handleSantaClick}/>
       </div>
     </div>
     </>

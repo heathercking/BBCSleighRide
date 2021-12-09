@@ -234,7 +234,8 @@
 
 .end-of-quiz {
     width: 60%;
-    margin: 0 auto 2.5em auto;
+    background-color: var(--baby-powder-white);
+    margin: 2em auto 2.5em auto;
     margin-top: 1.5em;
     border: 1px solid var(--text-alternate);
     padding: 1em;

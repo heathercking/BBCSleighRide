@@ -1,5 +1,3 @@
-
-
 @keyframes fade-in {
     from {
       opacity: 0;
@@ -10,7 +8,12 @@
     }
   }
 
-.punchline {
+  #joke-punchline-id {
+    opacity: 0;
+  }
+
+.punchline-animation {
+    display: block !important;
     opacity: 0;
     animation: fade-in 1 .75s linear;
     animation-delay: 2s;

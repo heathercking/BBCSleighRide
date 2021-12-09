@@ -22,8 +22,10 @@
 }
 
 .santa-header {
+  /* position: absolute; */
   cursor: pointer;
-  height: 75px;
+  height: 7vh;
+  margin-left: 20%;
   width: 80px;
 }
 
