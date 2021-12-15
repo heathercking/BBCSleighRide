@@ -2,7 +2,7 @@
 
 **OVERVIEW**
 
-BB Sleigh Ride is a prototype of a Christmas-themed educational app for primary-aged children; fictitiously commissioned by the BBC.
+BBC Sleigh Ride is a prototype of a Christmas-themed educational app for primary-aged children; fictitiously commissioned by the BBC. It offers interactive learning and testing of Christmas-related facts from around the world, as well as some festive entertainment features.
 
 ![BBCSleighRide](screenshots/BBCSleighRide_homepage.png)
 
