@@ -4,24 +4,15 @@
 
 BBC Sleigh Ride is a prototype of a Christmas-themed educational app for primary-aged children; fictitiously commissioned by the BBC. It offers interactive learning and testing of Christmas-related facts from around the world, as well as some festive entertainment features.
 
+A demo is available here: (https://youtu.be/im-5jjxNOzk)
+
 ![BBCSleighRide](screenshots/BBCSleighRide_homepage.png)
 
 Key features:
 1. an interactive map full of facts about Christmas around the world
-
-![BBCSleighRide](screenshots/BBCSleighRide_map.png)
-
 2. a quiz to test newley aquired knowledge from the map
-
-![BBCSleighRide](screenshots/BBCSleighRide_quiz.png)
-
 3. a random joke generator for some light entertainment
-
-![BBCSleighRide](screenshots/BBCSleighRide_joke.png)
-
 4. a Santa chatbot and falling snowflakes!
-
-![BBCSleighRide](screenshots/BBCSleighRide_chatbot.png)
 
 A full brief - including future developments - is included below. 
 
@@ -42,7 +33,7 @@ A full brief - including future developments - is included below.
     - `npm run seeds`
     - `npm run server:dev` (should be listening on port 5000)
 
-2. Client
+2. Client - in command line:
     - `npm install`
     - `npm start` (should be listening on port 3000)
 
